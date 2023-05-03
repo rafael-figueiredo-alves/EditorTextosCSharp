@@ -57,46 +57,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="novoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="abrirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="salvarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="salvarComoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 6</value>
-  </data>
-  <data name="imprimirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 6</value>
-  </data>
-  <data name="encerrarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="MenuRecentes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="MenuRecentes.Text" xml:space="preserve">
-    <value>toolStripMenuItem5</value>
-  </data>
-  <data name="fecharTodosOsDocumentosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>227, 22</value>
-  </data>
   <data name="fecharTodosOsDocumentosToolStripMenuItem.Text" xml:space="preserve">
     <value>Fechar todos os documentos</value>
   </data>
   <data name="Documentos.Text" xml:space="preserve">
     <value>Documentos</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="menuSobre.Size" type="System.Drawing.Size, System.Drawing">
     <value>104, 22</value>
   </data>
@@ -118,6 +85,9 @@
   <data name="btnNovo.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
+  <data name="btnNovo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
   <data name="btnNovo.Text" xml:space="preserve">
     <value>toolStripButton1</value>
   </data>
@@ -126,6 +96,9 @@
   </data>
   <data name="BtnAbrir.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
+  </data>
+  <data name="BtnAbrir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
   </data>
   <data name="BtnAbrir.Text" xml:space="preserve">
     <value>toolStripButton2</value>
@@ -140,6 +113,9 @@
   <data name="BtnSalvar.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
+  <data name="BtnSalvar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
   <data name="BtnSalvar.Text" xml:space="preserve">
     <value>toolStripButton3</value>
   </data>
@@ -149,14 +125,23 @@
   <data name="BtnImprimir.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
+  <data name="BtnImprimir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
   <data name="BtnImprimir.Text" xml:space="preserve">
     <value>toolStripButton4</value>
   </data>
   <data name="BtnImprimir.ToolTipText" xml:space="preserve">
     <value>Imprima o documento</value>
   </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 27</value>
+  </data>
   <data name="BtnDesfazer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
+  </data>
+  <data name="BtnDesfazer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
   </data>
   <data name="BtnDesfazer.Text" xml:space="preserve">
     <value>toolStripButton5</value>
@@ -167,6 +152,9 @@
   <data name="BtnRefazer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
+  <data name="BtnRefazer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
   <data name="BtnRefazer.Text" xml:space="preserve">
     <value>toolStripButton6</value>
   </data>
@@ -175,6 +163,9 @@
   </data>
   <data name="BtnCopiar.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
+  </data>
+  <data name="BtnCopiar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
   </data>
   <data name="BtnCopiar.Text" xml:space="preserve">
     <value>toolStripButton7</value>
@@ -185,6 +176,9 @@
   <data name="BtnCortar.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
+  <data name="BtnCortar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
   <data name="BtnCortar.Text" xml:space="preserve">
     <value>toolStripButton8</value>
   </data>
@@ -194,20 +188,38 @@
   <data name="BtnColar.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
+  <data name="BtnColar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
   <data name="BtnColar.Text" xml:space="preserve">
     <value>toolStripButton9</value>
   </data>
   <data name="BtnColar.ToolTipText" xml:space="preserve">
     <value>Colar um trecho ou imagem no documento</value>
   </data>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 27</value>
+  </data>
+  <data name="cbFont.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 27</value>
+  </data>
   <data name="cbFont.ToolTipText" xml:space="preserve">
     <value>Fontes disponíveis</value>
+  </data>
+  <data name="cbFontSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 27</value>
   </data>
   <data name="cbFontSize.ToolTipText" xml:space="preserve">
     <value>Tamanho da Fonte</value>
   </data>
+  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 27</value>
+  </data>
   <data name="BtnNegrito.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
+  </data>
+  <data name="BtnNegrito.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
   </data>
   <data name="BtnNegrito.Text" xml:space="preserve">
     <value>toolStripButton10</value>
@@ -218,6 +230,9 @@
   <data name="BtnItalico.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
+  <data name="BtnItalico.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
   <data name="BtnItalico.Text" xml:space="preserve">
     <value>toolStripButton11</value>
   </data>
@@ -227,14 +242,23 @@
   <data name="BtnSublinhar.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
+  <data name="BtnSublinhar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
   <data name="BtnSublinhar.Text" xml:space="preserve">
     <value>toolStripButton12</value>
   </data>
   <data name="BtnSublinhar.ToolTipText" xml:space="preserve">
     <value>Sublinhar</value>
   </data>
+  <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 27</value>
+  </data>
   <data name="BtnEsquerda.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
+  </data>
+  <data name="BtnEsquerda.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
   </data>
   <data name="BtnEsquerda.Text" xml:space="preserve">
     <value>toolStripButton13</value>
@@ -245,6 +269,9 @@
   <data name="BtnCentro.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
+  <data name="BtnCentro.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
   <data name="BtnCentro.Text" xml:space="preserve">
     <value>toolStripButton14</value>
   </data>
@@ -254,6 +281,9 @@
   <data name="BtnDireita.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
+  <data name="BtnDireita.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
   <data name="BtnDireita.Text" xml:space="preserve">
     <value>toolStripButton15</value>
   </data>
@@ -261,7 +291,7 @@
     <value>Alinhar texto a Direita</value>
   </data>
   <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 25</value>
+    <value>800, 27</value>
   </data>
   <data name="toolStrip1.Text" xml:space="preserve">
     <value>toolStrip1</value>

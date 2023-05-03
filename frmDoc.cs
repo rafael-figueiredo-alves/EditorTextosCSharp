@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace EditorTextos
 {
-	public partial class FrmDoc : Form
-	{
-		public FrmDoc()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class FrmDoc : Form
+    {
+        public FrmDoc()
+        {
+            InitializeComponent();
+        }
+    }
 }

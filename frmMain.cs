@@ -201,11 +201,11 @@ namespace EditorTextos
         {
             if (BtnNegrito.Checked)
             {
-                DocWindow()!.SelectionFont = new Font(DocWindow()!.Font, FontStyle.Bold);
+                DocWindow()!.SelectionFont = new Font(DocWindow()!.SelectionFont, DocWindow()!.SelectionFont.Style | FontStyle.Bold);
             }
             else
             {
-                DocWindow().SelectionFont = new Font(DocWindow()!.Font, FontStyle.Regular);
+                DocWindow().SelectionFont = new Font(DocWindow()!.SelectionFont, DocWindow()!.SelectionFont.Style & FontStyle.Bold);
             }
         }
 
@@ -213,11 +213,11 @@ namespace EditorTextos
         {
             if (BtnItalico.Checked)
             {
-                DocWindow()!.SelectionFont = new Font(DocWindow()!.Font, FontStyle.Italic);
+                DocWindow()!.SelectionFont = new Font(DocWindow()!.SelectionFont, DocWindow()!.SelectionFont.Style | FontStyle.Italic);
             }
             else
             {
-                DocWindow().SelectionFont = new Font(DocWindow()!.Font, FontStyle.Regular);
+                DocWindow().SelectionFont = new Font(DocWindow()!.SelectionFont, DocWindow()!.SelectionFont.Style & FontStyle.Italic);
             }
         }
     }

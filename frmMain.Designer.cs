@@ -370,6 +370,7 @@
             BtnNegrito.DisplayStyle = ToolStripItemDisplayStyle.Image;
             BtnNegrito.Image = Properties.Resources.icons8_bold_16;
             BtnNegrito.Name = "BtnNegrito";
+            BtnNegrito.Click += BtnNegrito_Click;
             // 
             // BtnItalico
             // 
@@ -378,6 +379,7 @@
             BtnItalico.DisplayStyle = ToolStripItemDisplayStyle.Image;
             BtnItalico.Image = Properties.Resources.icons8_italic_16;
             BtnItalico.Name = "BtnItalico";
+            BtnItalico.Click += BtnItalico_Click;
             // 
             // BtnSublinhar
             // 
@@ -398,6 +400,7 @@
             BtnEsquerda.DisplayStyle = ToolStripItemDisplayStyle.Image;
             BtnEsquerda.Image = Properties.Resources.icons8_align_16__1_;
             BtnEsquerda.Name = "BtnEsquerda";
+            BtnEsquerda.Click += BtnEsquerda_Click;
             // 
             // BtnCentro
             // 
@@ -405,6 +408,7 @@
             BtnCentro.DisplayStyle = ToolStripItemDisplayStyle.Image;
             BtnCentro.Image = Properties.Resources.icons8_center_16;
             BtnCentro.Name = "BtnCentro";
+            BtnCentro.Click += BtnCentro_Click;
             // 
             // BtnDireita
             // 
@@ -412,6 +416,7 @@
             BtnDireita.DisplayStyle = ToolStripItemDisplayStyle.Image;
             BtnDireita.Image = Properties.Resources.icons8_align_16;
             BtnDireita.Name = "BtnDireita";
+            BtnDireita.Click += BtnDireita_Click;
             // 
             // Dicas
             // 

@@ -57,27 +57,121 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="novoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 26</value>
+  </data>
+  <data name="abrirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 26</value>
+  </data>
+  <data name="salvarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 26</value>
+  </data>
+  <data name="salvarComoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 26</value>
+  </data>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 6</value>
+  </data>
+  <data name="imprimirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 26</value>
+  </data>
+  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 6</value>
+  </data>
+  <data name="encerrarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 26</value>
+  </data>
+  <data name="arquivoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 29</value>
+  </data>
+  <data name="desfazerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 26</value>
+  </data>
+  <data name="refazerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 26</value>
+  </data>
+  <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 6</value>
+  </data>
+  <data name="copiarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 26</value>
+  </data>
+  <data name="recortarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 26</value>
+  </data>
+  <data name="colarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 26</value>
+  </data>
+  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 6</value>
+  </data>
+  <data name="selecionarTudoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 26</value>
+  </data>
+  <data name="editarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 29</value>
+  </data>
+  <data name="inserirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 29</value>
+  </data>
+  <data name="formatarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 29</value>
+  </data>
+  <data name="fecharTodosOsDocumentosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>282, 26</value>
+  </data>
   <data name="fecharTodosOsDocumentosToolStripMenuItem.Text" xml:space="preserve">
     <value>Fechar todos os documentos</value>
+  </data>
+  <data name="Documentos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 29</value>
   </data>
   <data name="Documentos.Text" xml:space="preserve">
     <value>Documentos</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cxPesquisa.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 27</value>
+  </data>
   <data name="menuSobre.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 22</value>
+    <value>131, 26</value>
   </data>
   <data name="menuSobre.Text" xml:space="preserve">
     <value>Sobre</value>
   </data>
+  <data name="ajudaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 29</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 3, 0, 3</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>914, 35</value>
+  </data>
+  <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 21</value>
+  </data>
   <data name="toolStripStatusLabel1.Text" xml:space="preserve">
     <value>toolStripStatusLabel1</value>
+  </data>
+  <data name="ProgressBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 19</value>
+  </data>
+  <data name="toolStripStatusLabel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 21</value>
   </data>
   <data name="toolStripStatusLabel2.Text" xml:space="preserve">
     <value>toolStripStatusLabel2</value>
   </data>
+  <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 573</value>
+  </data>
+  <data name="statusStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 0, 18, 0</value>
+  </data>
   <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 22</value>
+    <value>914, 27</value>
   </data>
   <data name="statusStrip1.Text" xml:space="preserve">
     <value>statusStrip1</value>
@@ -86,7 +180,7 @@
     <value>Magenta</value>
   </data>
   <data name="btnNovo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>29, 25</value>
   </data>
   <data name="btnNovo.Text" xml:space="preserve">
     <value>toolStripButton1</value>
@@ -98,7 +192,7 @@
     <value>Magenta</value>
   </data>
   <data name="BtnAbrir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>29, 25</value>
   </data>
   <data name="BtnAbrir.Text" xml:space="preserve">
     <value>toolStripButton2</value>
@@ -114,7 +208,7 @@
     <value>Magenta</value>
   </data>
   <data name="BtnSalvar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>29, 25</value>
   </data>
   <data name="BtnSalvar.Text" xml:space="preserve">
     <value>toolStripButton3</value>
@@ -126,7 +220,7 @@
     <value>Magenta</value>
   </data>
   <data name="BtnImprimir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>29, 25</value>
   </data>
   <data name="BtnImprimir.Text" xml:space="preserve">
     <value>toolStripButton4</value>
@@ -135,13 +229,13 @@
     <value>Imprima o documento</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 27</value>
+    <value>6, 28</value>
   </data>
   <data name="BtnDesfazer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="BtnDesfazer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>29, 25</value>
   </data>
   <data name="BtnDesfazer.Text" xml:space="preserve">
     <value>toolStripButton5</value>
@@ -153,7 +247,7 @@
     <value>Magenta</value>
   </data>
   <data name="BtnRefazer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>29, 25</value>
   </data>
   <data name="BtnRefazer.Text" xml:space="preserve">
     <value>toolStripButton6</value>
@@ -165,7 +259,7 @@
     <value>Magenta</value>
   </data>
   <data name="BtnCopiar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>29, 25</value>
   </data>
   <data name="BtnCopiar.Text" xml:space="preserve">
     <value>toolStripButton7</value>
@@ -177,7 +271,7 @@
     <value>Magenta</value>
   </data>
   <data name="BtnCortar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>29, 25</value>
   </data>
   <data name="BtnCortar.Text" xml:space="preserve">
     <value>toolStripButton8</value>
@@ -189,7 +283,7 @@
     <value>Magenta</value>
   </data>
   <data name="BtnColar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>29, 25</value>
   </data>
   <data name="BtnColar.Text" xml:space="preserve">
     <value>toolStripButton9</value>
@@ -198,28 +292,28 @@
     <value>Colar um trecho ou imagem no documento</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 27</value>
+    <value>6, 28</value>
   </data>
   <data name="cbFont.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 27</value>
+    <value>165, 28</value>
   </data>
   <data name="cbFont.ToolTipText" xml:space="preserve">
     <value>Fontes disponíveis</value>
   </data>
   <data name="cbFontSize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 27</value>
+    <value>85, 28</value>
   </data>
   <data name="cbFontSize.ToolTipText" xml:space="preserve">
     <value>Tamanho da Fonte</value>
   </data>
   <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 27</value>
+    <value>6, 28</value>
   </data>
   <data name="BtnNegrito.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="BtnNegrito.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>29, 25</value>
   </data>
   <data name="BtnNegrito.Text" xml:space="preserve">
     <value>toolStripButton10</value>
@@ -231,7 +325,7 @@
     <value>Magenta</value>
   </data>
   <data name="BtnItalico.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>29, 25</value>
   </data>
   <data name="BtnItalico.Text" xml:space="preserve">
     <value>toolStripButton11</value>
@@ -243,7 +337,7 @@
     <value>Magenta</value>
   </data>
   <data name="BtnSublinhar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>29, 25</value>
   </data>
   <data name="BtnSublinhar.Text" xml:space="preserve">
     <value>toolStripButton12</value>
@@ -252,13 +346,13 @@
     <value>Sublinhar</value>
   </data>
   <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 27</value>
+    <value>6, 28</value>
   </data>
   <data name="BtnEsquerda.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="BtnEsquerda.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>29, 25</value>
   </data>
   <data name="BtnEsquerda.Text" xml:space="preserve">
     <value>toolStripButton13</value>
@@ -270,7 +364,7 @@
     <value>Magenta</value>
   </data>
   <data name="BtnCentro.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>29, 25</value>
   </data>
   <data name="BtnCentro.Text" xml:space="preserve">
     <value>toolStripButton14</value>
@@ -282,7 +376,7 @@
     <value>Magenta</value>
   </data>
   <data name="BtnDireita.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>29, 25</value>
   </data>
   <data name="BtnDireita.Text" xml:space="preserve">
     <value>toolStripButton15</value>
@@ -290,11 +384,20 @@
   <data name="BtnDireita.ToolTipText" xml:space="preserve">
     <value>Alinhar texto a Direita</value>
   </data>
+  <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 35</value>
+  </data>
   <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 27</value>
+    <value>914, 28</value>
   </data>
   <data name="toolStrip1.Text" xml:space="preserve">
     <value>toolStrip1</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 20</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>914, 600</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -371,5 +474,8 @@
         AB/4AAAf+AAAH/gAAB/gAAAH4AAAB+AAAAfgAAAH+AAAH/gAAB//AAD//wAA//8AAP//AAD//wAA//8A
         AP//AAD//wAA//8AAP//gAH///////////8=
 </value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
   </data>
 </root>

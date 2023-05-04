@@ -69,6 +69,15 @@ namespace EditorTextos
             Application.Exit();
         }
 
+        private void AlignmentChanged(HorizontalAlignment align)
+        {
+            DocWindow()!.SelectionAlignment = align;
+
+            BtnEsquerda.Checked = align == HorizontalAlignment.Left;
+            BtnCentro.Checked = align == HorizontalAlignment.Center;
+            BtnDireita.Checked = align == HorizontalAlignment.Right;
+        }
+
         private void NovoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmDoc Documento = new()
@@ -81,14 +90,6 @@ namespace EditorTextos
 
             cbFont.Text = Documento.DocContent.Font.Name.ToString();
             cbFontSize.Text = Documento.DocContent.Font.Size.ToString();
-
-            //switch (Documento.DocContent.SelectionAlignment)
-            //{
-            //    case HorizontalAlignment.Left:
-            //    case HorizontalAlignment.Right:
-            //    case HorizontalAlignment.Center:
-
-            //}
         }
 
         private void TimerControles_Tick(object sender, EventArgs e)
@@ -175,6 +176,48 @@ namespace EditorTextos
                 }
                 cxPesquisa.Clear();
                 DocWindow()!.Focus();
+            }
+        }
+
+        private void BtnEsquerda_Click(object sender, EventArgs e)
+        {
+            AlignmentChanged(HorizontalAlignment.Left);
+            DocWindow()!.Focus();
+        }
+
+        private void BtnCentro_Click(object sender, EventArgs e)
+        {
+            AlignmentChanged(HorizontalAlignment.Center);
+            DocWindow()!.Focus();
+        }
+
+        private void BtnDireita_Click(object sender, EventArgs e)
+        {
+            AlignmentChanged(HorizontalAlignment.Right);
+            DocWindow()!.Focus();
+        }
+
+        private void BtnNegrito_Click(object sender, EventArgs e)
+        {
+            if (BtnNegrito.Checked)
+            {
+                DocWindow()!.SelectionFont = new Font(DocWindow()!.Font, FontStyle.Bold);
+            }
+            else
+            {
+                DocWindow().SelectionFont = new Font(DocWindow()!.Font, FontStyle.Regular);
+            }
+        }
+
+        private void BtnItalico_Click(object sender, EventArgs e)
+        {
+            if (BtnItalico.Checked)
+            {
+                DocWindow()!.SelectionFont = new Font(DocWindow()!.Font, FontStyle.Italic);
+            }
+            else
+            {
+                DocWindow().SelectionFont = new Font(DocWindow()!.Font, FontStyle.Regular);
             }
         }
     }

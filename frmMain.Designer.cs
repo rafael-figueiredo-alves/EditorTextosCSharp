@@ -213,7 +213,7 @@
             // 
             resources.ApplyResources(fecharTodosOsDocumentosToolStripMenuItem, "fecharTodosOsDocumentosToolStripMenuItem");
             fecharTodosOsDocumentosToolStripMenuItem.Name = "fecharTodosOsDocumentosToolStripMenuItem";
-            fecharTodosOsDocumentosToolStripMenuItem.Click += fecharTodosOsDocumentosToolStripMenuItem_Click;
+            fecharTodosOsDocumentosToolStripMenuItem.Click += FecharTodosOsDocumentosToolStripMenuItem_Click;
             // 
             // cxPesquisa
             // 
@@ -226,7 +226,7 @@
             cxPesquisa.Overflow = ToolStripItemOverflow.Never;
             cxPesquisa.Enter += CxPesquisa_Enter;
             cxPesquisa.Leave += CxPesquisa_Leave;
-            cxPesquisa.KeyPress += cxPesquisa_KeyPress;
+            cxPesquisa.KeyPress += CxPesquisa_KeyPress;
             // 
             // ajudaToolStripMenuItem
             // 
@@ -350,6 +350,7 @@
             cbFont.DropDownStyle = ComboBoxStyle.DropDownList;
             cbFont.DropDownWidth = 265;
             cbFont.Name = "cbFont";
+            cbFont.SelectedIndexChanged += CbFont_SelectedIndexChanged;
             // 
             // cbFontSize
             // 
@@ -357,6 +358,7 @@
             cbFontSize.DropDownStyle = ComboBoxStyle.DropDownList;
             cbFontSize.Items.AddRange(new object[] { resources.GetString("cbFontSize.Items"), resources.GetString("cbFontSize.Items1"), resources.GetString("cbFontSize.Items2"), resources.GetString("cbFontSize.Items3"), resources.GetString("cbFontSize.Items4"), resources.GetString("cbFontSize.Items5"), resources.GetString("cbFontSize.Items6"), resources.GetString("cbFontSize.Items7"), resources.GetString("cbFontSize.Items8"), resources.GetString("cbFontSize.Items9"), resources.GetString("cbFontSize.Items10"), resources.GetString("cbFontSize.Items11"), resources.GetString("cbFontSize.Items12"), resources.GetString("cbFontSize.Items13") });
             cbFontSize.Name = "cbFontSize";
+            cbFontSize.SelectedIndexChanged += CbFontSize_SelectedIndexChanged;
             // 
             // toolStripSeparator3
             // 
@@ -388,6 +390,7 @@
             BtnSublinhar.DisplayStyle = ToolStripItemDisplayStyle.Image;
             BtnSublinhar.Image = Properties.Resources.icons8_underline_16;
             BtnSublinhar.Name = "BtnSublinhar";
+            BtnSublinhar.Click += BtnSublinhar_Click;
             // 
             // toolStripSeparator4
             // 

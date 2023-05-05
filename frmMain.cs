@@ -14,22 +14,16 @@ namespace EditorTextos
             cbFontSize.SelectedIndex = 0;
         }
 
-        private RichTextBox? DocWindow()
+        private FrmDoc? DocWindow()
         {
             if (ActiveMdiChild is FrmDoc Docs)
             {
-                return Docs.DocContent;
+                return Docs;
             }
             else
             {
                 return null;
             }
-        }
-
-        private void FillFontSizeCombobox()
-        {
-            IList<string> fontNames = FontFamily.Families.Select(f => f.Name).ToList();
-
         }
 
         private void FillFontCombobox()
@@ -71,7 +65,8 @@ namespace EditorTextos
 
         private void AlignmentChanged(HorizontalAlignment align)
         {
-            DocWindow()!.SelectionAlignment = align;
+            if (DocWindow() != null)
+                DocWindow()!.SelectionAlignment(align);
 
             BtnEsquerda.Checked = align == HorizontalAlignment.Left;
             BtnCentro.Checked = align == HorizontalAlignment.Center;
@@ -88,21 +83,21 @@ namespace EditorTextos
             Documento.Show();
             Docs++;
 
-            cbFont.Text = Documento.DocContent.Font.Name.ToString();
-            cbFontSize.Text = Documento.DocContent.Font.Size.ToString();
+            cbFont.Text = Documento.FontName();
+            cbFontSize.Text = Documento.FontSize();
         }
 
         private void TimerControles_Tick(object sender, EventArgs e)
         {
             if (DocWindow() != null)
             {
-                BtnSalvar.Enabled = DocWindow()!.Modified;
+                BtnSalvar.Enabled = DocWindow()!.Modified();
                 BtnImprimir.Enabled = true;
                 BtnCopiar.Enabled = true;
                 BtnCortar.Enabled = true;
                 BtnColar.Enabled = true;
-                BtnDesfazer.Enabled = DocWindow()!.CanUndo;
-                BtnRefazer.Enabled = DocWindow()!.CanRedo;
+                BtnDesfazer.Enabled = DocWindow()!.AbleUNDO();
+                BtnRefazer.Enabled = DocWindow()!.AbleREDO();
                 cbFont.Enabled = true;
                 cbFontSize.Enabled = true;
                 BtnNegrito.Enabled = true;
@@ -122,9 +117,14 @@ namespace EditorTextos
                 selecionarTudoToolStripMenuItem.Enabled = true;
                 fecharTodosOsDocumentosToolStripMenuItem.Enabled = true;
                 imprimirToolStripMenuItem.Enabled = true;
-                BtnEsquerda.Checked = (DocWindow()!.SelectionAlignment == HorizontalAlignment.Left);
-                BtnCentro.Checked = (DocWindow()!.SelectionAlignment == HorizontalAlignment.Center);
-                BtnDireita.Checked = (DocWindow()!.SelectionAlignment == HorizontalAlignment.Right);
+
+                BtnEsquerda.Checked = (DocWindow()!.DocAlignment() == HorizontalAlignment.Left);
+                BtnCentro.Checked = (DocWindow()!.DocAlignment() == HorizontalAlignment.Center);
+                BtnDireita.Checked = (DocWindow()!.DocAlignment() == HorizontalAlignment.Right);
+
+                BtnNegrito.Checked = (DocWindow()!.IsBold());
+                BtnItalico.Checked = (DocWindow()!.IsItalic());
+                BtnSublinhar.Checked = (DocWindow()!.IsUnderline());
             }
             else
             {
@@ -157,7 +157,7 @@ namespace EditorTextos
             }
         }
 
-        private void fecharTodosOsDocumentosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FecharTodosOsDocumentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (Form form in MdiChildren)
             {
@@ -165,59 +165,69 @@ namespace EditorTextos
             }
         }
 
-        private void cxPesquisa_KeyPress(object sender, KeyPressEventArgs e)
+        private void CxPesquisa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true;
-                if (DocWindow()!.Find(cxPesquisa.Text) == -1)
+                if (DocWindow()!.DocFind(cxPesquisa.Text) == -1)
                 {
                     MessageBox.Show("Não foi possível encontrar nenhum resultado para a busca.");
                 }
                 cxPesquisa.Clear();
-                DocWindow()!.Focus();
+                DocWindow()!.DocFocus();
             }
         }
 
         private void BtnEsquerda_Click(object sender, EventArgs e)
         {
             AlignmentChanged(HorizontalAlignment.Left);
-            DocWindow()!.Focus();
+            DocWindow()!.DocFocus();
         }
 
         private void BtnCentro_Click(object sender, EventArgs e)
         {
             AlignmentChanged(HorizontalAlignment.Center);
-            DocWindow()!.Focus();
+            DocWindow()!.DocFocus();
         }
 
         private void BtnDireita_Click(object sender, EventArgs e)
         {
             AlignmentChanged(HorizontalAlignment.Right);
-            DocWindow()!.Focus();
+            DocWindow()!.DocFocus();
         }
 
         private void BtnNegrito_Click(object sender, EventArgs e)
         {
-            if (BtnNegrito.Checked)
-            {
-                DocWindow()!.SelectionFont = new Font(DocWindow()!.SelectionFont, DocWindow()!.SelectionFont.Style | FontStyle.Bold);
-            }
-            else
-            {
-                DocWindow().SelectionFont = new Font(DocWindow()!.SelectionFont, DocWindow()!.SelectionFont.Style & FontStyle.Bold);
-            }
+            DocWindow()!.SetBold();
         }
 
         private void BtnItalico_Click(object sender, EventArgs e)
         {
-            if (BtnItalico.Checked)
+            DocWindow()!.SetItalic();
+        }
+
+        private void BtnSublinhar_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.SetUnderline();
+        }
+
+        private void CbFont_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DocWindow() != null)
             {
-                DocWindow()!.SelectionFont = new Font(DocWindow()!.SelectionFont, DocWindow()!.SelectionFont.Style | FontStyle.Italic);
+                DocWindow()!.SetFontName(cbFont.Text);
+                DocWindow()!.DocFocus();
             }
-            else
+                
+        }
+
+        private void CbFontSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DocWindow() != null)
             {
-                DocWindow().SelectionFont = new Font(DocWindow()!.SelectionFont, DocWindow()!.SelectionFont.Style & FontStyle.Italic);
+                DocWindow()!.SetFontSize(float.Parse(cbFontSize.Text));
+                DocWindow()!.DocFocus();
             }
         }
     }

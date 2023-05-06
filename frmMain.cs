@@ -85,6 +85,8 @@ namespace EditorTextos
 
             cbFont.Text = Documento.FontName();
             cbFontSize.Text = Documento.FontSize();
+            Documento.ComboFont = cbFont;
+            Documento.ComboSize = cbFontSize;
         }
 
         private void TimerControles_Tick(object sender, EventArgs e)
@@ -112,7 +114,7 @@ namespace EditorTextos
                 desfazerToolStripMenuItem.Enabled = true;
                 refazerToolStripMenuItem.Enabled = true;
                 copiarToolStripMenuItem.Enabled = true;
-                colarToolStripMenuItem.Enabled = true;
+                colarToolStripMenuItem.Enabled = DocWindow()!.AblePASTE();
                 recortarToolStripMenuItem.Enabled = true;
                 selecionarTudoToolStripMenuItem.Enabled = true;
                 fecharTodosOsDocumentosToolStripMenuItem.Enabled = true;

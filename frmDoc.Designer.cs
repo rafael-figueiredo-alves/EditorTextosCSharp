@@ -40,6 +40,7 @@
             DocContent.Size = new Size(914, 600);
             DocContent.TabIndex = 0;
             DocContent.Text = "";
+            DocContent.SelectionChanged += DocContent_SelectionChanged;
             // 
             // FrmDoc
             // 
@@ -50,6 +51,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "FrmDoc";
             Text = "Sem título";
+            FormClosing += FrmDoc_FormClosing;
             ResumeLayout(false);
         }
 

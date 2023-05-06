@@ -12,6 +12,8 @@ namespace EditorTextos
 {
     public partial class FrmDoc : Form
     {
+        public ToolStripComboBox? ComboFont { get; set; }
+        public ToolStripComboBox? ComboSize { get; set; }
         public FrmDoc()
         {
             InitializeComponent();
@@ -26,27 +28,52 @@ namespace EditorTextos
 
         public bool IsBold()
         {
-            return DocContent.SelectionFont.Bold;
+            if (DocContent.SelectionFont != null)
+            {
+                return DocContent.SelectionFont.Bold;
+            }
+            else { return false; }
         }
 
         public bool IsItalic()
         {
-            return DocContent.SelectionFont.Italic;
+            if (DocContent.SelectionFont != null)
+            {
+                return DocContent.SelectionFont.Italic;
+            }
+            else { return false; }
         }
 
         public bool IsUnderline()
         {
-            return DocContent.SelectionFont.Underline;
+            if (DocContent.SelectionFont != null)
+            {
+                return DocContent.SelectionFont.Underline;
+            }
+            else
+            { return false; }
         }
 
         public string FontName()
         {
-            return DocContent.SelectionFont.Name.ToString();
+            if (DocContent.SelectionFont != null)
+            {
+                return DocContent.SelectionFont.Name.ToString();
+            }
+            else
+            { return string.Empty; }
         }
 
         public string FontSize()
         {
-            return DocContent.SelectionFont.Size.ToString();
+            if (DocContent.SelectionFont != null)
+            {
+                return DocContent.SelectionFont.Size.ToString();
+            }
+            else
+            {
+                return string.Empty;
+            }
         }
 
         public HorizontalAlignment DocAlignment()
@@ -62,6 +89,11 @@ namespace EditorTextos
         public bool AbleREDO()
         {
             return DocContent.CanRedo;
+        }
+
+        public bool AblePASTE()
+        {
+            return Clipboard.ContainsText() || Clipboard.ContainsImage(); 
         }
 
         //---------------------------------------------------------------------------------------------------------------
@@ -83,48 +115,124 @@ namespace EditorTextos
 
         public void SetBold()
         {
-            if (DocContent.SelectionFont.Bold)
+            if (DocContent.SelectionFont != null)
             {
-                DocContent.SelectionFont = new Font(DocContent.SelectionFont, DocContent.SelectionFont.Style & ~FontStyle.Bold);
+                if (DocContent.SelectionFont.Bold)
+                {
+                    DocContent.SelectionFont = new Font(DocContent.SelectionFont, DocContent.SelectionFont.Style & ~FontStyle.Bold);
+                }
+                else
+                {
+                    DocContent.SelectionFont = new Font(DocContent.SelectionFont, DocContent.SelectionFont.Style | FontStyle.Bold);
+                }
             }
             else
             {
-                DocContent.SelectionFont = new Font(DocContent.SelectionFont, DocContent.SelectionFont.Style | FontStyle.Bold);
+                DocContent.SelectionFont = new Font(DocContent.Font, DocContent.Font.Style | FontStyle.Bold);
             }
         }
 
         public void SetItalic()
         {
-            if (DocContent.SelectionFont.Italic)
+            if (DocContent.SelectionFont != null)
             {
-                DocContent.SelectionFont = new Font(DocContent.SelectionFont, DocContent.SelectionFont.Style & ~FontStyle.Italic);
+                if (DocContent.SelectionFont.Italic)
+                {
+                    DocContent.SelectionFont = new Font(DocContent.SelectionFont, DocContent.SelectionFont.Style & ~FontStyle.Italic);
+                }
+                else
+                {
+                    DocContent.SelectionFont = new Font(DocContent.SelectionFont, DocContent.SelectionFont.Style | FontStyle.Italic);
+                }
             }
             else
             {
-                DocContent.SelectionFont = new Font(DocContent.SelectionFont, DocContent.SelectionFont.Style | FontStyle.Italic);
+                DocContent.SelectionFont = new Font(DocContent.Font, DocContent.Font.Style | FontStyle.Italic);
             }
         }
 
         public void SetUnderline()
         {
-            if (DocContent.SelectionFont.Underline)
+            if (DocContent.SelectionFont != null)
             {
-                DocContent.SelectionFont = new Font(DocContent.SelectionFont, DocContent.SelectionFont.Style & ~FontStyle.Underline);
+                if (DocContent.SelectionFont.Underline)
+                {
+                    DocContent.SelectionFont = new Font(DocContent.SelectionFont, DocContent.SelectionFont.Style & ~FontStyle.Underline);
+                }
+                else
+                {
+                    DocContent.SelectionFont = new Font(DocContent.SelectionFont, DocContent.SelectionFont.Style | FontStyle.Underline);
+                }
             }
             else
             {
-                DocContent.SelectionFont = new Font(DocContent.SelectionFont, DocContent.SelectionFont.Style | FontStyle.Underline);
+                DocContent.SelectionFont = new Font(DocContent.Font, DocContent.Font.Style | FontStyle.Underline);
             }
         }
 
         public void SetFontName(string FFontName)
         {
-            DocContent.SelectionFont = new Font(FFontName, DocContent.SelectionFont.Size);
+            if (DocContent.SelectionFont != null)
+            {
+                DocContent.SelectionFont = new Font(FFontName, DocContent.SelectionFont.Size);
+            }
+            else
+            {
+                DocContent.SelectionFont = new Font(FFontName, DocContent.Font.Size);
+            }
         }
 
         public void SetFontSize(float FFontSize)
         {
-            DocContent.SelectionFont = new Font(DocContent.SelectionFont.Name.ToString(), FFontSize);
+            if (DocContent.SelectionFont != null)
+            {
+                DocContent.SelectionFont = new Font(DocContent.SelectionFont.Name.ToString(), FFontSize);
+            }
+            else
+            {
+                DocContent.SelectionFont = new Font(DocContent.Font.Name.ToString(), FFontSize);
+            }
+        }
+
+        private void DocContent_SelectionChanged(object sender, EventArgs e)
+        {
+            if (ComboFont != null)
+            {
+                if (DocContent.SelectionFont != null)
+                {
+                    ComboFont.Text = DocContent.SelectionFont.Name.ToString();
+                }
+                else
+                {
+                    ComboFont.Text = DocContent.Font.Name.ToString();
+                }
+            }
+
+            if (ComboSize != null)
+            {
+                if (DocContent.SelectionFont != null)
+                {
+                    ComboSize.Text = DocContent.SelectionFont.Size.ToString();
+                }
+                else
+                {
+                    ComboSize.Text = DocContent.Font.Size.ToString();
+                }
+
+            }
+        }
+
+        private void FrmDoc_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(DocContent.Modified)
+            {
+                if (MessageBox.Show("O documento tem modificações não salvas. Tem certeza que deseja fechar sem salvar?",
+                                    "Fechar sem salvar?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+
+            }
         }
     }
 }

@@ -221,7 +221,7 @@ namespace EditorTextos
                 DocWindow()!.SetFontName(cbFont.Text);
                 DocWindow()!.DocFocus();
             }
-                
+
         }
 
         private void CbFontSize_SelectedIndexChanged(object sender, EventArgs e)
@@ -231,6 +231,26 @@ namespace EditorTextos
                 DocWindow()!.SetFontSize(float.Parse(cbFontSize.Text));
                 DocWindow()!.DocFocus();
             }
+        }
+
+        private void AbrirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDoc Documento = new()
+            {
+                MdiParent = this,
+            };
+            if (Documento.OpenDoc())
+            {
+                cbFont.Text = Documento.FontName();
+                cbFontSize.Text = Documento.FontSize();
+                Documento.ComboFont = cbFont;
+                Documento.ComboSize = cbFontSize;
+            }
+        }
+
+        private void salvarComoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.SaveDocAs();
         }
     }
 }

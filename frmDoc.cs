@@ -93,7 +93,7 @@ namespace EditorTextos
 
         public bool AblePASTE()
         {
-            return Clipboard.ContainsText() || Clipboard.ContainsImage(); 
+            return Clipboard.ContainsText() || Clipboard.ContainsImage();
         }
 
         //---------------------------------------------------------------------------------------------------------------
@@ -224,7 +224,7 @@ namespace EditorTextos
 
         private void FrmDoc_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(DocContent.Modified)
+            if (DocContent.Modified)
             {
                 if (MessageBox.Show("O documento tem modificações não salvas. Tem certeza que deseja fechar sem salvar?",
                                     "Fechar sem salvar?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
@@ -232,6 +232,33 @@ namespace EditorTextos
                     e.Cancel = true;
                 }
 
+            }
+        }
+
+        public void SaveDocAs()
+        {
+            if (SaveDlg.ShowDialog() == DialogResult.OK)
+            {
+                DocContent.SaveFile(SaveDlg.FileName);
+                DocContent.Modified = false;
+                this.Text = SaveDlg.FileName;
+            }
+        }
+
+        public bool OpenDoc()
+        {
+            if (OpenDlg.ShowDialog() == DialogResult.OK)
+            {
+                DocContent.LoadFile(OpenDlg.FileName);
+                this.Text = OpenDlg.FileName;
+                this.Show();
+                DocContent.Modified = false;
+                return true;
+            }
+            else
+            {
+                this.Close();
+                return false;
             }
         }
     }

@@ -115,6 +115,7 @@
             // 
             resources.ApplyResources(abrirToolStripMenuItem, "abrirToolStripMenuItem");
             abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
+            abrirToolStripMenuItem.Click += AbrirToolStripMenuItem_Click;
             // 
             // salvarToolStripMenuItem
             // 
@@ -125,6 +126,7 @@
             // 
             resources.ApplyResources(salvarComoToolStripMenuItem, "salvarComoToolStripMenuItem");
             salvarComoToolStripMenuItem.Name = "salvarComoToolStripMenuItem";
+            salvarComoToolStripMenuItem.Click += salvarComoToolStripMenuItem_Click;
             // 
             // toolStripMenuItem1
             // 
@@ -277,6 +279,7 @@
             btnNovo.DisplayStyle = ToolStripItemDisplayStyle.Image;
             btnNovo.Image = Properties.Resources.icons8_new_16;
             btnNovo.Name = "btnNovo";
+            btnNovo.Click += NovoToolStripMenuItem_Click;
             // 
             // BtnAbrir
             // 
@@ -284,6 +287,7 @@
             BtnAbrir.DisplayStyle = ToolStripItemDisplayStyle.Image;
             BtnAbrir.Image = Properties.Resources.icons8_open_16;
             BtnAbrir.Name = "BtnAbrir";
+            BtnAbrir.Click += AbrirToolStripMenuItem_Click;
             // 
             // BtnSalvar
             // 

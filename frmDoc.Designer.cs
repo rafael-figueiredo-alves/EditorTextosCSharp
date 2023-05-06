@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             DocContent = new RichTextBox();
+            OpenDlg = new OpenFileDialog();
+            SaveDlg = new SaveFileDialog();
             SuspendLayout();
             // 
             // DocContent
@@ -42,6 +44,21 @@
             DocContent.Text = "";
             DocContent.SelectionChanged += DocContent_SelectionChanged;
             // 
+            // OpenDlg
+            // 
+            OpenDlg.DefaultExt = "rtf";
+            OpenDlg.FileName = "openFileDialog1";
+            OpenDlg.Filter = "Documento de texto|*.rtf";
+            OpenDlg.ShowPreview = true;
+            OpenDlg.Title = "Abrir documento";
+            // 
+            // SaveDlg
+            // 
+            SaveDlg.CreatePrompt = true;
+            SaveDlg.DefaultExt = "rtf";
+            SaveDlg.Filter = "Documento de Texto|*.rtf";
+            SaveDlg.Title = "Salvar Documento";
+            // 
             // FrmDoc
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -50,6 +67,7 @@
             Controls.Add(DocContent);
             Margin = new Padding(3, 4, 3, 4);
             Name = "FrmDoc";
+            ShowIcon = false;
             Text = "Sem título";
             FormClosing += FrmDoc_FormClosing;
             ResumeLayout(false);
@@ -58,5 +76,7 @@
         #endregion
 
         private RichTextBox DocContent;
+        private SaveFileDialog SaveDlg;
+        private OpenFileDialog OpenDlg;
     }
 }

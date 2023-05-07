@@ -28,9 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDoc));
             DocContent = new RichTextBox();
             OpenDlg = new OpenFileDialog();
             SaveDlg = new SaveFileDialog();
+            SelectImage = new OpenFileDialog();
+            fontDlg = new FontDialog();
+            printDlg = new PrintDialog();
+            printDoc = new System.Drawing.Printing.PrintDocument();
+            printPreviewDlg = new PrintPreviewDialog();
             SuspendLayout();
             // 
             // DocContent
@@ -42,6 +48,7 @@
             DocContent.Size = new Size(914, 600);
             DocContent.TabIndex = 0;
             DocContent.Text = "";
+            DocContent.LinkClicked += DocContent_LinkClicked;
             DocContent.SelectionChanged += DocContent_SelectionChanged;
             // 
             // OpenDlg
@@ -54,10 +61,35 @@
             // 
             // SaveDlg
             // 
-            SaveDlg.CreatePrompt = true;
             SaveDlg.DefaultExt = "rtf";
             SaveDlg.Filter = "Documento de Texto|*.rtf";
             SaveDlg.Title = "Salvar Documento";
+            // 
+            // SelectImage
+            // 
+            SelectImage.DefaultExt = "png";
+            SelectImage.FileName = "openFileDialog1";
+            SelectImage.Filter = "Imagem PNG|*png|Imagem JPG|*.jpg|Imagem JPEG|*.jpg|Imagem Gif|*.gif";
+            SelectImage.ShowPreview = true;
+            SelectImage.Title = "Selecione a imagem que deseja inserir";
+            // 
+            // printDlg
+            // 
+            printDlg.UseEXDialog = true;
+            // 
+            // printDoc
+            // 
+            printDoc.PrintPage += printDoc_PrintPage;
+            // 
+            // printPreviewDlg
+            // 
+            printPreviewDlg.AutoScrollMargin = new Size(0, 0);
+            printPreviewDlg.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDlg.ClientSize = new Size(400, 300);
+            printPreviewDlg.Enabled = true;
+            printPreviewDlg.Icon = (Icon)resources.GetObject("printPreviewDlg.Icon");
+            printPreviewDlg.Name = "printPreviewDlg";
+            printPreviewDlg.Visible = false;
             // 
             // FrmDoc
             // 
@@ -69,6 +101,7 @@
             Name = "FrmDoc";
             ShowIcon = false;
             Text = "Sem título";
+            WindowState = FormWindowState.Maximized;
             FormClosing += FrmDoc_FormClosing;
             ResumeLayout(false);
         }
@@ -78,5 +111,10 @@
         private RichTextBox DocContent;
         private SaveFileDialog SaveDlg;
         private OpenFileDialog OpenDlg;
+        private OpenFileDialog SelectImage;
+        private FontDialog fontDlg;
+        private PrintDialog printDlg;
+        private System.Drawing.Printing.PrintDocument printDoc;
+        private PrintPreviewDialog printPreviewDlg;
     }
 }

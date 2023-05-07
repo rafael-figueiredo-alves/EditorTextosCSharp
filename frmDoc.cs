@@ -1,31 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace EditorTextos
+﻿namespace EditorTextos
 {
     public partial class FrmDoc : Form
     {
         public ToolStripComboBox? ComboFont { get; set; }
         public ToolStripComboBox? ComboSize { get; set; }
-        public FrmDoc()
+        private string DocFilename { get; set; } = string.Empty;
+
+        private StringReader? leitor;
+        public FrmDoc(int DocNo = 0)
         {
             InitializeComponent();
-        }
 
+            if (DocNo > 0)
+            {
+                Text = "Sem título " + DocNo;
+            }
+        }
         //-------------------------------------------------------------------------------
         // Métodos para ler propriedades do RichTextBox
         public bool Modified()
         {
             return DocContent.Modified;
         }
-
         public bool IsBold()
         {
             if (DocContent.SelectionFont != null)
@@ -34,7 +30,6 @@ namespace EditorTextos
             }
             else { return false; }
         }
-
         public bool IsItalic()
         {
             if (DocContent.SelectionFont != null)
@@ -43,7 +38,6 @@ namespace EditorTextos
             }
             else { return false; }
         }
-
         public bool IsUnderline()
         {
             if (DocContent.SelectionFont != null)
@@ -53,7 +47,6 @@ namespace EditorTextos
             else
             { return false; }
         }
-
         public string FontName()
         {
             if (DocContent.SelectionFont != null)
@@ -63,7 +56,6 @@ namespace EditorTextos
             else
             { return string.Empty; }
         }
-
         public string FontSize()
         {
             if (DocContent.SelectionFont != null)
@@ -75,44 +67,36 @@ namespace EditorTextos
                 return string.Empty;
             }
         }
-
         public HorizontalAlignment DocAlignment()
         {
             return DocContent.SelectionAlignment;
         }
-
         public bool AbleUNDO()
         {
             return DocContent.CanUndo;
         }
-
         public bool AbleREDO()
         {
             return DocContent.CanRedo;
         }
-
         public bool AblePASTE()
         {
-            return Clipboard.ContainsText() || Clipboard.ContainsImage();
+            return (Clipboard.ContainsText()) || (Clipboard.ContainsImage());
         }
-
         //---------------------------------------------------------------------------------------------------------------
         // Métodos que permitem acesso aos métodos do RichTextBox
         public void SelectionAlignment(HorizontalAlignment align)
         {
             DocContent.SelectionAlignment = align;
         }
-
         public int DocFind(string Ftext)
         {
             return DocContent.Find(Ftext);
         }
-
         public void DocFocus()
         {
             DocContent.Focus();
         }
-
         public void SetBold()
         {
             if (DocContent.SelectionFont != null)
@@ -131,7 +115,6 @@ namespace EditorTextos
                 DocContent.SelectionFont = new Font(DocContent.Font, DocContent.Font.Style | FontStyle.Bold);
             }
         }
-
         public void SetItalic()
         {
             if (DocContent.SelectionFont != null)
@@ -150,7 +133,6 @@ namespace EditorTextos
                 DocContent.SelectionFont = new Font(DocContent.Font, DocContent.Font.Style | FontStyle.Italic);
             }
         }
-
         public void SetUnderline()
         {
             if (DocContent.SelectionFont != null)
@@ -169,7 +151,6 @@ namespace EditorTextos
                 DocContent.SelectionFont = new Font(DocContent.Font, DocContent.Font.Style | FontStyle.Underline);
             }
         }
-
         public void SetFontName(string FFontName)
         {
             if (DocContent.SelectionFont != null)
@@ -181,7 +162,6 @@ namespace EditorTextos
                 DocContent.SelectionFont = new Font(FFontName, DocContent.Font.Size);
             }
         }
-
         public void SetFontSize(float FFontSize)
         {
             if (DocContent.SelectionFont != null)
@@ -193,7 +173,6 @@ namespace EditorTextos
                 DocContent.SelectionFont = new Font(DocContent.Font.Name.ToString(), FFontSize);
             }
         }
-
         private void DocContent_SelectionChanged(object sender, EventArgs e)
         {
             if (ComboFont != null)
@@ -221,7 +200,6 @@ namespace EditorTextos
 
             }
         }
-
         private void FrmDoc_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (DocContent.Modified)
@@ -234,23 +212,31 @@ namespace EditorTextos
 
             }
         }
-
         public void SaveDocAs()
         {
+            if (DocFilename != string.Empty)
+            {
+                SaveDlg.FileName = DocFilename;
+            }
+            else
+            {
+                SaveDlg.FileName = this.Text.Replace(' ', '-');
+            }
+
             if (SaveDlg.ShowDialog() == DialogResult.OK)
             {
                 DocContent.SaveFile(SaveDlg.FileName);
+                DocFilename = SaveDlg.FileName;
                 DocContent.Modified = false;
-                this.Text = SaveDlg.FileName;
+                this.Text = Path.GetFileNameWithoutExtension(SaveDlg.FileName);
             }
         }
-
         public bool OpenDoc()
         {
             if (OpenDlg.ShowDialog() == DialogResult.OK)
             {
                 DocContent.LoadFile(OpenDlg.FileName);
-                this.Text = OpenDlg.FileName;
+                this.Text = Path.GetFileNameWithoutExtension(OpenDlg.FileName);
                 this.Show();
                 DocContent.Modified = false;
                 return true;
@@ -260,6 +246,144 @@ namespace EditorTextos
                 this.Close();
                 return false;
             }
+        }
+        public void SaveDoc()
+        {
+            if (DocFilename == string.Empty)
+            {
+                SaveDocAs();
+            }
+            else
+            {
+                DocContent.SaveFile(DocFilename);
+                DocContent.Modified = false;
+            }
+        }
+        public void InsertImage()
+        {
+            if (SelectImage.ShowDialog() == DialogResult.OK)
+            {
+                Image img = Image.FromFile(SelectImage.FileName);
+                Clipboard.SetImage(img);
+                DocContent.Paste();
+                Clipboard.Clear();
+                DocContent.Focus();
+            }
+            else
+            {
+                DocContent.Focus();
+            }
+
+        }
+        public void InsertDateTime()
+        {
+            DocContent.SelectedText = DateTime.Now.ToString();
+        }
+        public void FormatFont()
+        {
+            fontDlg.Font = DocContent.SelectionFont;
+
+            if (fontDlg.ShowDialog() == DialogResult.OK)
+            {
+                DocContent.SelectionFont = fontDlg.Font;
+            }
+        }
+        public void DocUndo()
+        {
+            DocContent.Undo();
+        }
+        public void DocRedo()
+        {
+            DocContent.Redo();
+        }
+        public void DocSelectAll()
+        {
+            DocContent.SelectAll();
+        }
+        public void DocCopy()
+        {
+            DocContent.Copy();
+        }
+        public void DocCut()
+        {
+            DocContent.Cut();
+        }
+        public void DocPaste()
+        {
+            DocContent.Paste();
+        }
+        public void SetPrinter()
+        {
+            printDlg.Document = printDoc;
+            printDlg.ShowDialog();
+        }
+
+        public void PreviewPrint()
+        {
+            string Texto = DocContent.Text;
+            leitor = new StringReader(Texto);
+            printPreviewDlg.Document = printDoc;
+            printPreviewDlg.ShowDialog();
+        }
+
+        public void PrintDoc()
+        {
+            printDlg.Document = printDoc;
+            string strTexto = DocContent.Text;
+            leitor = new StringReader(strTexto);
+            if (printDlg.ShowDialog() == DialogResult.OK)
+            {
+                printDoc.Print();
+            }
+        }
+
+        private void printDoc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            float linhasPorPagina = 0;
+            float Posicao_Y = 0;
+            int contador = 0;
+            //defina as margens e o valor minimo
+            float MargemEsquerda = e.MarginBounds.Left - 50;
+            float MargemSuperior = e.MarginBounds.Top - 50;
+            if (MargemEsquerda < 5)
+                MargemEsquerda = 20;
+            if (MargemSuperior < 5)
+                MargemSuperior = 20;
+
+            //define a fonte 
+            string? linha = null;
+            Font FonteDeImpressao = DocContent.Font;
+            SolidBrush meupincel = new(Color.Black);
+            //StreamReader leitor = null;
+            //Calcula o numero de linhas por página usando as medidas das margens
+            linhasPorPagina = e.MarginBounds.Height / FonteDeImpressao.GetHeight(e.Graphics!);
+            // Vamos imprimir cada linha implementando um StringReader
+            linha = leitor!.ReadLine();
+            while (contador < linhasPorPagina)
+            {
+                // calcula a posicao da proxima linha baseado  na altura da fonte de acordo com o dispositivo de impressão
+                Posicao_Y = MargemSuperior + (contador * FonteDeImpressao.GetHeight(e.Graphics!));
+                // desenha a proxima linha no controle richtextbox
+                e.Graphics!.DrawString(linha, FonteDeImpressao, meupincel, MargemEsquerda, Posicao_Y, new StringFormat());
+                //conta a linha e incrementa uma unidade
+                contador += 1;
+                linha = leitor.ReadLine();
+            }
+            // se existir mais linhas imprime outra página
+            if ((linha != null))
+            {
+                e.HasMorePages = true;
+            }
+            else
+            {
+                e.HasMorePages = false;
+            }
+            meupincel.Dispose();
+        }
+
+        private void DocContent_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+
         }
     }
 }

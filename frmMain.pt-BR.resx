@@ -59,28 +59,34 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="novoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
+    <value>280, 26</value>
   </data>
   <data name="abrirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
+    <value>280, 26</value>
   </data>
   <data name="salvarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
+    <value>280, 26</value>
   </data>
   <data name="salvarComoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
+    <value>280, 26</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>221, 6</value>
+    <value>277, 6</value>
+  </data>
+  <data name="MnuConfigImpressao.Text" xml:space="preserve">
+    <value>Configurações de Impressão</value>
+  </data>
+  <data name="MnuVisualizarImpressao.Text" xml:space="preserve">
+    <value>Visualizar Impressão</value>
   </data>
   <data name="imprimirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
+    <value>280, 26</value>
   </data>
   <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>221, 6</value>
+    <value>277, 6</value>
   </data>
   <data name="encerrarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
+    <value>280, 26</value>
   </data>
   <data name="arquivoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 29</value>
@@ -112,17 +118,47 @@
   <data name="editarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 29</value>
   </data>
+  <data name="MnuDataHora.Text" xml:space="preserve">
+    <value>Data e Hora</value>
+  </data>
+  <data name="MnuInserirImagem.Text" xml:space="preserve">
+    <value>Imagem</value>
+  </data>
   <data name="inserirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 29</value>
+  </data>
+  <data name="MnuFonte.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 26</value>
+  </data>
+  <data name="MnuFonte.Text" xml:space="preserve">
+    <value>&amp;Fonte</value>
   </data>
   <data name="formatarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 29</value>
   </data>
+  <data name="MnuMinimizarDocs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>361, 26</value>
+  </data>
+  <data name="MnuMinimizarDocs.Text" xml:space="preserve">
+    <value>Minimizar todos os documentos</value>
+  </data>
   <data name="fecharTodosOsDocumentosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>282, 26</value>
+    <value>361, 26</value>
   </data>
   <data name="fecharTodosOsDocumentosToolStripMenuItem.Text" xml:space="preserve">
     <value>Fechar todos os documentos</value>
+  </data>
+  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>358, 6</value>
+  </data>
+  <data name="organizarDocumentosEmCascataToolStripMenuItem.Text" xml:space="preserve">
+    <value>Organizar Documentos em Cascata</value>
+  </data>
+  <data name="MnuOrgDocHorizontal.Text" xml:space="preserve">
+    <value>Organizar Documentos Horizontalmente</value>
+  </data>
+  <data name="organizarDocumentosVerticalmenteToolStripMenuItem.Text" xml:space="preserve">
+    <value>Organizar Documentos Verticalmente</value>
   </data>
   <data name="Documentos.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 29</value>
@@ -149,32 +185,8 @@
   <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
     <value>914, 35</value>
   </data>
-  <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 21</value>
-  </data>
-  <data name="toolStripStatusLabel1.Text" xml:space="preserve">
-    <value>toolStripStatusLabel1</value>
-  </data>
-  <data name="ProgressBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 19</value>
-  </data>
-  <data name="toolStripStatusLabel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 21</value>
-  </data>
-  <data name="toolStripStatusLabel2.Text" xml:space="preserve">
-    <value>toolStripStatusLabel2</value>
-  </data>
-  <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 573</value>
-  </data>
-  <data name="statusStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 18, 0</value>
-  </data>
-  <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>914, 27</value>
-  </data>
-  <data name="statusStrip1.Text" xml:space="preserve">
-    <value>statusStrip1</value>
+  <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>356, 6</value>
   </data>
   <data name="btnNovo.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
@@ -392,6 +404,9 @@
   </data>
   <data name="toolStrip1.Text" xml:space="preserve">
     <value>toolStrip1</value>
+  </data>
+  <data name="MnuVertical.Text" xml:space="preserve">
+    <value>Organizar documentos Verticalmente</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>8, 20</value>

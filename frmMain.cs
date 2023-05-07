@@ -1,11 +1,9 @@
-using System.Runtime.CompilerServices;
-
 namespace EditorTextos
 {
-    public partial class frmMain : Form
+    public partial class FrmMain : Form
     {
         private int Docs = 1;
-        public frmMain()
+        public FrmMain()
         {
             InitializeComponent();
 
@@ -34,7 +32,6 @@ namespace EditorTextos
                 cbFont.Items.Add(fontName);
             }
         }
-
 
         private void CxPesquisa_Enter(object sender, EventArgs e)
         {
@@ -75,10 +72,9 @@ namespace EditorTextos
 
         private void NovoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmDoc Documento = new()
+            FrmDoc Documento = new(Docs)
             {
-                MdiParent = this,
-                Text = "Sem Título " + Docs.ToString()
+                MdiParent = this
             };
             Documento.Show();
             Docs++;
@@ -110,14 +106,24 @@ namespace EditorTextos
                 BtnDireita.Enabled = true;
                 cxPesquisa.Enabled = true;
                 salvarComoToolStripMenuItem.Enabled = true;
-                salvarToolStripMenuItem.Enabled = true;
-                desfazerToolStripMenuItem.Enabled = true;
-                refazerToolStripMenuItem.Enabled = true;
+                desfazerToolStripMenuItem.Enabled = DocWindow()!.AbleUNDO();
+                refazerToolStripMenuItem.Enabled = DocWindow()!.AbleREDO();
                 copiarToolStripMenuItem.Enabled = true;
                 colarToolStripMenuItem.Enabled = DocWindow()!.AblePASTE();
                 recortarToolStripMenuItem.Enabled = true;
                 selecionarTudoToolStripMenuItem.Enabled = true;
                 fecharTodosOsDocumentosToolStripMenuItem.Enabled = true;
+                imprimirToolStripMenuItem.Enabled = true;
+                salvarToolStripMenuItem.Enabled = DocWindow()!.Modified();
+                MnuInserirImagem.Enabled = true;
+                MnuFonte.Enabled = true;
+                MnuDataHora.Enabled = true;
+                MnuMinimizarDocs.Enabled = true;
+                organizarDocumentosEmCascataToolStripMenuItem.Enabled = true;
+                MnuOrgDocHorizontal.Enabled = true;
+                organizarDocumentosVerticalmenteToolStripMenuItem.Enabled = true;
+                MnuConfigImpressao.Enabled = true;
+                MnuVisualizarImpressao.Enabled = true;
                 imprimirToolStripMenuItem.Enabled = true;
 
                 BtnEsquerda.Checked = (DocWindow()!.DocAlignment() == HorizontalAlignment.Left);
@@ -155,6 +161,16 @@ namespace EditorTextos
                 recortarToolStripMenuItem.Enabled = false;
                 selecionarTudoToolStripMenuItem.Enabled = false;
                 fecharTodosOsDocumentosToolStripMenuItem.Enabled = false;
+                imprimirToolStripMenuItem.Enabled = false;
+                MnuInserirImagem.Enabled = false;
+                MnuFonte.Enabled = false;
+                MnuDataHora.Enabled = false;
+                MnuMinimizarDocs.Enabled = false;
+                organizarDocumentosEmCascataToolStripMenuItem.Enabled = false;
+                organizarDocumentosVerticalmenteToolStripMenuItem.Enabled = false;
+                MnuOrgDocHorizontal.Enabled = false;
+                MnuConfigImpressao.Enabled = false;
+                MnuVisualizarImpressao.Enabled = false;
                 imprimirToolStripMenuItem.Enabled = false;
             }
         }
@@ -202,16 +218,19 @@ namespace EditorTextos
         private void BtnNegrito_Click(object sender, EventArgs e)
         {
             DocWindow()!.SetBold();
+            DocWindow()!.DocFocus();
         }
 
         private void BtnItalico_Click(object sender, EventArgs e)
         {
             DocWindow()!.SetItalic();
+            DocWindow()!.DocFocus();
         }
 
         private void BtnSublinhar_Click(object sender, EventArgs e)
         {
             DocWindow()!.SetUnderline();
+            DocWindow()!.DocFocus();
         }
 
         private void CbFont_SelectedIndexChanged(object sender, EventArgs e)
@@ -248,9 +267,97 @@ namespace EditorTextos
             }
         }
 
-        private void salvarComoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SalvarComoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DocWindow()!.SaveDocAs();
+        }
+
+        private void MnuMinimizarDocs_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in MdiChildren)
+            {
+                form.WindowState = FormWindowState.Minimized;
+            }
+        }
+
+        private void OrganizarDocumentosEmCascataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.Cascade);
+        }
+
+        private void MnuOrgDocHorizontal_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.TileHorizontal);
+        }
+
+        private void OrganizarDocumentosVerticalmenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.TileVertical);
+        }
+
+        private void BtnSalvar_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.SaveDoc();
+        }
+
+        private void MnuInserirImagem_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.InsertImage();
+        }
+
+        private void MnuDataHora_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.InsertDateTime();
+        }
+
+        private void MnuFonte_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.FormatFont();
+        }
+
+        private void BtnDesfazer_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.DocUndo();
+        }
+
+        private void BtnRefazer_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.DocRedo();
+        }
+
+        private void BtnCopiar_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.DocCopy();
+        }
+
+        private void BtnCortar_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.DocCut();
+        }
+
+        private void BtnColar_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.DocPaste();
+        }
+
+        private void SelecionarTudoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.DocSelectAll();
+        }
+
+        private void MnuConfigImpressao_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.SetPrinter();
+        }
+
+        private void MnuVisualizarImpressao_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.PreviewPrint();
+        }
+
+        private void ImprimirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.PrintDoc();
         }
     }
 }

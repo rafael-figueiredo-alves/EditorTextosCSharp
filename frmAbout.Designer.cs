@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbout));
             imageLogo = new PictureBox();
             lblTitulo = new Label();
             lblVersion = new Label();
@@ -65,7 +66,7 @@
             lblVersion.Name = "lblVersion";
             lblVersion.Size = new Size(75, 20);
             lblVersion.TabIndex = 2;
-            lblVersion.Text = "versão 1.0";
+            lblVersion.Text = "versão 1.1";
             // 
             // lblCopyright
             // 
@@ -108,7 +109,7 @@
             TxtHistorico.ReadOnly = true;
             TxtHistorico.Size = new Size(528, 222);
             TxtHistorico.TabIndex = 0;
-            TxtHistorico.Text = "Versão 1.0\r\n=> Primeiro release oficial\r\n=> Recursos básicos de Editor de Texto";
+            TxtHistorico.Text = resources.GetString("TxtHistorico.Text");
             // 
             // FrmAbout
             // 

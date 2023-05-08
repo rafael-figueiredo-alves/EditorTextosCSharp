@@ -126,13 +126,13 @@ namespace EditorTextos
                 MnuVisualizarImpressao.Enabled = true;
                 imprimirToolStripMenuItem.Enabled = true;
 
-                BtnEsquerda.Checked = (DocWindow()!.DocAlignment() == HorizontalAlignment.Left);
-                BtnCentro.Checked = (DocWindow()!.DocAlignment() == HorizontalAlignment.Center);
-                BtnDireita.Checked = (DocWindow()!.DocAlignment() == HorizontalAlignment.Right);
+                //BtnEsquerda.Checked = (DocWindow()!.DocAlignment() == HorizontalAlignment.Left);
+                //BtnCentro.Checked = (DocWindow()!.DocAlignment() == HorizontalAlignment.Center);
+                //BtnDireita.Checked = (DocWindow()!.DocAlignment() == HorizontalAlignment.Right);
 
-                BtnNegrito.Checked = (DocWindow()!.IsBold());
-                BtnItalico.Checked = (DocWindow()!.IsItalic());
-                BtnSublinhar.Checked = (DocWindow()!.IsUnderline());
+                //BtnNegrito.Checked = (DocWindow()!.IsBold());
+                //BtnItalico.Checked = (DocWindow()!.IsItalic());
+                //BtnSublinhar.Checked = (DocWindow()!.IsUnderline());
             }
             else
             {
@@ -358,6 +358,16 @@ namespace EditorTextos
         private void ImprimirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DocWindow()!.PrintDoc();
+        }
+
+        private void apenasADataNoFormatoDDMMAAAAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.InsertSimpleDate();
+        }
+
+        private void apenasAHoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.InsertTime();
         }
     }
 }

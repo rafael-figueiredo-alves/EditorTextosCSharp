@@ -53,6 +53,9 @@
             selecionarTudoToolStripMenuItem = new ToolStripMenuItem();
             inserirToolStripMenuItem = new ToolStripMenuItem();
             MnuDataHora = new ToolStripMenuItem();
+            dataEHoraCompletaToolStripMenuItem = new ToolStripMenuItem();
+            apenasADataNoFormatoDDMMAAAAToolStripMenuItem = new ToolStripMenuItem();
+            apenasAHoraToolStripMenuItem = new ToolStripMenuItem();
             MnuInserirImagem = new ToolStripMenuItem();
             formatarToolStripMenuItem = new ToolStripMenuItem();
             MnuFonte = new ToolStripMenuItem();
@@ -233,8 +236,26 @@
             // MnuDataHora
             // 
             resources.ApplyResources(MnuDataHora, "MnuDataHora");
+            MnuDataHora.DropDownItems.AddRange(new ToolStripItem[] { dataEHoraCompletaToolStripMenuItem, apenasADataNoFormatoDDMMAAAAToolStripMenuItem, apenasAHoraToolStripMenuItem });
             MnuDataHora.Name = "MnuDataHora";
-            MnuDataHora.Click += MnuDataHora_Click;
+            // 
+            // dataEHoraCompletaToolStripMenuItem
+            // 
+            resources.ApplyResources(dataEHoraCompletaToolStripMenuItem, "dataEHoraCompletaToolStripMenuItem");
+            dataEHoraCompletaToolStripMenuItem.Name = "dataEHoraCompletaToolStripMenuItem";
+            dataEHoraCompletaToolStripMenuItem.Click += MnuDataHora_Click;
+            // 
+            // apenasADataNoFormatoDDMMAAAAToolStripMenuItem
+            // 
+            resources.ApplyResources(apenasADataNoFormatoDDMMAAAAToolStripMenuItem, "apenasADataNoFormatoDDMMAAAAToolStripMenuItem");
+            apenasADataNoFormatoDDMMAAAAToolStripMenuItem.Name = "apenasADataNoFormatoDDMMAAAAToolStripMenuItem";
+            apenasADataNoFormatoDDMMAAAAToolStripMenuItem.Click += apenasADataNoFormatoDDMMAAAAToolStripMenuItem_Click;
+            // 
+            // apenasAHoraToolStripMenuItem
+            // 
+            resources.ApplyResources(apenasAHoraToolStripMenuItem, "apenasAHoraToolStripMenuItem");
+            apenasAHoraToolStripMenuItem.Name = "apenasAHoraToolStripMenuItem";
+            apenasAHoraToolStripMenuItem.Click += apenasAHoraToolStripMenuItem_Click;
             // 
             // MnuInserirImagem
             // 
@@ -368,6 +389,7 @@
             BtnImprimir.DisplayStyle = ToolStripItemDisplayStyle.Image;
             BtnImprimir.Image = Properties.Resources.icons8_send_to_printer_16;
             BtnImprimir.Name = "BtnImprimir";
+            BtnImprimir.Click += ImprimirToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
@@ -504,7 +526,6 @@
             // 
             // timerControles
             // 
-            timerControles.Enabled = true;
             timerControles.Interval = 1;
             timerControles.Tick += TimerControles_Tick;
             // 
@@ -589,7 +610,6 @@
         private ToolStripMenuItem Documentos;
         private ToolStripMenuItem fecharTodosOsDocumentosToolStripMenuItem;
         private ToolStripSeparator toolStripMenuItem5;
-        private ToolStripMenuItem toolStripMenuItem6;
         private ToolStripMenuItem toolStripMenuItem9;
         private ToolStripMenuItem toolStripMenuItem8;
         private ToolStripMenuItem organizarDocumentosHorizontalmenteToolStripMenuItem;
@@ -606,5 +626,8 @@
         private ToolStripSeparator toolStripSeparator6;
         private ToolStripMenuItem MnuConfigImpressao;
         private ToolStripMenuItem MnuVisualizarImpressao;
+        private ToolStripMenuItem dataEHoraCompletaToolStripMenuItem;
+        private ToolStripMenuItem apenasADataNoFormatoDDMMAAAAToolStripMenuItem;
+        private ToolStripMenuItem apenasAHoraToolStripMenuItem;
     }
 }

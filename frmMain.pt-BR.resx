@@ -118,14 +118,32 @@
   <data name="editarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 29</value>
   </data>
+  <data name="dataEHoraCompletaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Data e hora completa</value>
+  </data>
+  <data name="apenasADataNoFormatoDDMMAAAAToolStripMenuItem.Text" xml:space="preserve">
+    <value>Apenas a Data no formato DD/MM/AAAA</value>
+  </data>
+  <data name="apenasAHoraToolStripMenuItem.Text" xml:space="preserve">
+    <value>Apenas a Hora</value>
+  </data>
+  <data name="MnuDataHora.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 26</value>
+  </data>
   <data name="MnuDataHora.Text" xml:space="preserve">
-    <value>Data e Hora</value>
+    <value>&amp;Data e Hora</value>
+  </data>
+  <data name="MnuInserirImagem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 26</value>
   </data>
   <data name="MnuInserirImagem.Text" xml:space="preserve">
-    <value>Imagem</value>
+    <value>I&amp;magem</value>
   </data>
   <data name="inserirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 29</value>
+  </data>
+  <data name="inserirToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Inserir</value>
   </data>
   <data name="MnuFonte.Size" type="System.Drawing.Size, System.Drawing">
     <value>129, 26</value>
@@ -135,6 +153,9 @@
   </data>
   <data name="formatarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 29</value>
+  </data>
+  <data name="formatarToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Formatar</value>
   </data>
   <data name="MnuMinimizarDocs.Size" type="System.Drawing.Size, System.Drawing">
     <value>361, 26</value>
@@ -164,7 +185,7 @@
     <value>107, 29</value>
   </data>
   <data name="Documentos.Text" xml:space="preserve">
-    <value>Documentos</value>
+    <value>&amp;Documentos</value>
   </data>
   <data name="cxPesquisa.Size" type="System.Drawing.Size, System.Drawing">
     <value>228, 27</value>

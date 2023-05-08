@@ -277,7 +277,15 @@
         }
         public void InsertDateTime()
         {
-            DocContent.SelectedText = DateTime.Now.ToString();
+            DocContent.SelectedText += DateTime.Now.ToString();
+        }
+        public void InsertSimpleDate()
+        {
+            DocContent.SelectedText += DateTime.Now.ToString("dd/MM/yyyy");
+        }
+        public void InsertTime()
+        {
+            DocContent.SelectedText += DateTime.Now.ToString("hh:mm:ss");
         }
         public void FormatFont()
         {
@@ -317,7 +325,6 @@
             printDlg.Document = printDoc;
             printDlg.ShowDialog();
         }
-
         public void PreviewPrint()
         {
             string Texto = DocContent.Text;
@@ -325,7 +332,6 @@
             printPreviewDlg.Document = printDoc;
             printPreviewDlg.ShowDialog();
         }
-
         public void PrintDoc()
         {
             printDlg.Document = printDoc;
@@ -336,7 +342,6 @@
                 printDoc.Print();
             }
         }
-
         private void printDoc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             float linhasPorPagina = 0;
@@ -380,10 +385,12 @@
             }
             meupincel.Dispose();
         }
-
         private void DocContent_LinkClicked(object sender, LinkClickedEventArgs e)
         {
-
+            if((e.LinkLength > 0) && (e.LinkText != null))
+            {
+                System.Diagnostics.Process.Start(e.LinkText);
+            }
         }
     }
 }

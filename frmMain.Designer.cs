@@ -67,6 +67,8 @@
             MnuOrgDocHorizontal = new ToolStripMenuItem();
             organizarDocumentosVerticalmenteToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator6 = new ToolStripSeparator();
+            MnuAumentarZoom = new ToolStripMenuItem();
+            DiminuirZoomToolStripMenuItem = new ToolStripMenuItem();
             cxPesquisa = new ToolStripTextBox();
             ajudaToolStripMenuItem = new ToolStripMenuItem();
             menuSobre = new ToolStripMenuItem();
@@ -249,13 +251,13 @@
             // 
             resources.ApplyResources(apenasADataNoFormatoDDMMAAAAToolStripMenuItem, "apenasADataNoFormatoDDMMAAAAToolStripMenuItem");
             apenasADataNoFormatoDDMMAAAAToolStripMenuItem.Name = "apenasADataNoFormatoDDMMAAAAToolStripMenuItem";
-            apenasADataNoFormatoDDMMAAAAToolStripMenuItem.Click += apenasADataNoFormatoDDMMAAAAToolStripMenuItem_Click;
+            apenasADataNoFormatoDDMMAAAAToolStripMenuItem.Click += ApenasADataNoFormatoDDMMAAAAToolStripMenuItem_Click;
             // 
             // apenasAHoraToolStripMenuItem
             // 
             resources.ApplyResources(apenasAHoraToolStripMenuItem, "apenasAHoraToolStripMenuItem");
             apenasAHoraToolStripMenuItem.Name = "apenasAHoraToolStripMenuItem";
-            apenasAHoraToolStripMenuItem.Click += apenasAHoraToolStripMenuItem_Click;
+            apenasAHoraToolStripMenuItem.Click += ApenasAHoraToolStripMenuItem_Click;
             // 
             // MnuInserirImagem
             // 
@@ -278,7 +280,7 @@
             // Documentos
             // 
             resources.ApplyResources(Documentos, "Documentos");
-            Documentos.DropDownItems.AddRange(new ToolStripItem[] { MnuMinimizarDocs, fecharTodosOsDocumentosToolStripMenuItem, toolStripSeparator5, organizarDocumentosEmCascataToolStripMenuItem, MnuOrgDocHorizontal, organizarDocumentosVerticalmenteToolStripMenuItem, toolStripSeparator6 });
+            Documentos.DropDownItems.AddRange(new ToolStripItem[] { MnuMinimizarDocs, fecharTodosOsDocumentosToolStripMenuItem, toolStripSeparator5, organizarDocumentosEmCascataToolStripMenuItem, MnuOrgDocHorizontal, organizarDocumentosVerticalmenteToolStripMenuItem, toolStripSeparator6, MnuAumentarZoom, DiminuirZoomToolStripMenuItem });
             Documentos.Name = "Documentos";
             // 
             // MnuMinimizarDocs
@@ -320,6 +322,18 @@
             // 
             resources.ApplyResources(toolStripSeparator6, "toolStripSeparator6");
             toolStripSeparator6.Name = "toolStripSeparator6";
+            // 
+            // MnuAumentarZoom
+            // 
+            resources.ApplyResources(MnuAumentarZoom, "MnuAumentarZoom");
+            MnuAumentarZoom.Name = "MnuAumentarZoom";
+            MnuAumentarZoom.Click += MnuAumentarZoom_Click;
+            // 
+            // DiminuirZoomToolStripMenuItem
+            // 
+            resources.ApplyResources(DiminuirZoomToolStripMenuItem, "DiminuirZoomToolStripMenuItem");
+            DiminuirZoomToolStripMenuItem.Name = "DiminuirZoomToolStripMenuItem";
+            DiminuirZoomToolStripMenuItem.Click += DiminuirZoomToolStripMenuItem_Click;
             // 
             // cxPesquisa
             // 
@@ -526,6 +540,7 @@
             // 
             // timerControles
             // 
+            timerControles.Enabled = true;
             timerControles.Interval = 1;
             timerControles.Tick += TimerControles_Tick;
             // 
@@ -610,8 +625,6 @@
         private ToolStripMenuItem Documentos;
         private ToolStripMenuItem fecharTodosOsDocumentosToolStripMenuItem;
         private ToolStripSeparator toolStripMenuItem5;
-        private ToolStripMenuItem toolStripMenuItem9;
-        private ToolStripMenuItem toolStripMenuItem8;
         private ToolStripMenuItem organizarDocumentosHorizontalmenteToolStripMenuItem;
         private ToolStripMenuItem MnuVertical;
         private ToolStripSeparator toolStripMenuItem7;
@@ -629,5 +642,7 @@
         private ToolStripMenuItem dataEHoraCompletaToolStripMenuItem;
         private ToolStripMenuItem apenasADataNoFormatoDDMMAAAAToolStripMenuItem;
         private ToolStripMenuItem apenasAHoraToolStripMenuItem;
+        private ToolStripMenuItem MnuAumentarZoom;
+        private ToolStripMenuItem DiminuirZoomToolStripMenuItem;
     }
 }

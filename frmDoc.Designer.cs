@@ -79,7 +79,7 @@
             // 
             // printDoc
             // 
-            printDoc.PrintPage += printDoc_PrintPage;
+            printDoc.PrintPage += PrintDoc_PrintPage;
             // 
             // printPreviewDlg
             // 

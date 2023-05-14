@@ -125,14 +125,16 @@ namespace EditorTextos
                 MnuConfigImpressao.Enabled = true;
                 MnuVisualizarImpressao.Enabled = true;
                 imprimirToolStripMenuItem.Enabled = true;
+                MnuAumentarZoom.Enabled = true;
+                DiminuirZoomToolStripMenuItem.Enabled = true;
 
-                //BtnEsquerda.Checked = (DocWindow()!.DocAlignment() == HorizontalAlignment.Left);
-                //BtnCentro.Checked = (DocWindow()!.DocAlignment() == HorizontalAlignment.Center);
-                //BtnDireita.Checked = (DocWindow()!.DocAlignment() == HorizontalAlignment.Right);
+                BtnEsquerda.Checked = (DocWindow()!.DocAlignment() == HorizontalAlignment.Left);
+                BtnCentro.Checked = (DocWindow()!.DocAlignment() == HorizontalAlignment.Center);
+                BtnDireita.Checked = (DocWindow()!.DocAlignment() == HorizontalAlignment.Right);
 
-                //BtnNegrito.Checked = (DocWindow()!.IsBold());
-                //BtnItalico.Checked = (DocWindow()!.IsItalic());
-                //BtnSublinhar.Checked = (DocWindow()!.IsUnderline());
+                BtnNegrito.Checked = (DocWindow()!.IsBold());
+                BtnItalico.Checked = (DocWindow()!.IsItalic());
+                BtnSublinhar.Checked = (DocWindow()!.IsUnderline());
             }
             else
             {
@@ -172,6 +174,8 @@ namespace EditorTextos
                 MnuConfigImpressao.Enabled = false;
                 MnuVisualizarImpressao.Enabled = false;
                 imprimirToolStripMenuItem.Enabled = false;
+                MnuAumentarZoom.Enabled = false;
+                DiminuirZoomToolStripMenuItem.Enabled = false;
             }
         }
 
@@ -360,14 +364,24 @@ namespace EditorTextos
             DocWindow()!.PrintDoc();
         }
 
-        private void apenasADataNoFormatoDDMMAAAAToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ApenasADataNoFormatoDDMMAAAAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DocWindow()!.InsertSimpleDate();
         }
 
-        private void apenasAHoraToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ApenasAHoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DocWindow()!.InsertTime();
+        }
+
+        private void MnuAumentarZoom_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.IncreaseZoom();
+        }
+
+        private void DiminuirZoomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.DecreaseZoom();
         }
     }
 }

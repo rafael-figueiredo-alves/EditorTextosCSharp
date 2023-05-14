@@ -127,14 +127,8 @@
   <data name="apenasAHoraToolStripMenuItem.Text" xml:space="preserve">
     <value>Apenas a Hora</value>
   </data>
-  <data name="MnuDataHora.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
-  </data>
   <data name="MnuDataHora.Text" xml:space="preserve">
     <value>&amp;Data e Hora</value>
-  </data>
-  <data name="MnuInserirImagem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
   </data>
   <data name="MnuInserirImagem.Text" xml:space="preserve">
     <value>I&amp;magem</value>
@@ -180,6 +174,12 @@
   </data>
   <data name="organizarDocumentosVerticalmenteToolStripMenuItem.Text" xml:space="preserve">
     <value>Organizar Documentos Verticalmente</value>
+  </data>
+  <data name="MnuAumentarZoom.Text" xml:space="preserve">
+    <value>Aumentar Zoom</value>
+  </data>
+  <data name="DiminuirZoomToolStripMenuItem.Text" xml:space="preserve">
+    <value>Diminuir Zoom</value>
   </data>
   <data name="Documentos.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 29</value>

@@ -81,7 +81,8 @@
         }
         public bool AblePASTE()
         {
-            return (Clipboard.ContainsText()) || (Clipboard.ContainsImage());
+            DataFormats.Format fm = DataFormats.GetFormat(DataFormats.Rtf);
+            return DocContent.CanPaste(fm);
         }
         //---------------------------------------------------------------------------------------------------------------
         // Métodos que permitem acesso aos métodos do RichTextBox
@@ -342,10 +343,8 @@
                 printDoc.Print();
             }
         }
-        private void printDoc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void PrintDoc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            float linhasPorPagina = 0;
-            float Posicao_Y = 0;
             int contador = 0;
             //defina as margens e o valor minimo
             float MargemEsquerda = e.MarginBounds.Left - 50;
@@ -354,20 +353,18 @@
                 MargemEsquerda = 20;
             if (MargemSuperior < 5)
                 MargemSuperior = 20;
-
-            //define a fonte 
-            string? linha = null;
             Font FonteDeImpressao = DocContent.Font;
             SolidBrush meupincel = new(Color.Black);
             //StreamReader leitor = null;
             //Calcula o numero de linhas por página usando as medidas das margens
-            linhasPorPagina = e.MarginBounds.Height / FonteDeImpressao.GetHeight(e.Graphics!);
+            float linhasPorPagina = e.MarginBounds.Height / FonteDeImpressao.GetHeight(e.Graphics!);
+            //define a fonte 
             // Vamos imprimir cada linha implementando um StringReader
-            linha = leitor!.ReadLine();
+            string? linha = leitor!.ReadLine();
             while (contador < linhasPorPagina)
             {
                 // calcula a posicao da proxima linha baseado  na altura da fonte de acordo com o dispositivo de impressão
-                Posicao_Y = MargemSuperior + (contador * FonteDeImpressao.GetHeight(e.Graphics!));
+                float Posicao_Y = MargemSuperior + (contador * FonteDeImpressao.GetHeight(e.Graphics!));
                 // desenha a proxima linha no controle richtextbox
                 e.Graphics!.DrawString(linha, FonteDeImpressao, meupincel, MargemEsquerda, Posicao_Y, new StringFormat());
                 //conta a linha e incrementa uma unidade
@@ -390,6 +387,22 @@
             if((e.LinkLength > 0) && (e.LinkText != null))
             {
                 System.Diagnostics.Process.Start(e.LinkText);
+            }
+        }
+
+        public void IncreaseZoom()
+        {
+            if(DocContent.ZoomFactor < 64)
+            {
+                DocContent.ZoomFactor += 1;
+            }
+        }
+
+        public void DecreaseZoom()
+        {
+            if(DocContent.ZoomFactor > 1)
+            {
+                DocContent.ZoomFactor -= 1;
             }
         }
     }

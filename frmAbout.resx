@@ -61,6 +61,8 @@
     <value>Versão 1.1
 =&gt; Implentados novos subtipos para inserir data e hora
 =&gt; Ajustado comportamento que fazia o sistema fechar sozinho
+=&gt; Adicionado ao menu Documento Recursos para aumentar
+      e diminuir Zoom do documento
 
 Versão 1.0
 =&gt; Primeiro release oficial

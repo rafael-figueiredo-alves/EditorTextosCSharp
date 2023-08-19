@@ -8,6 +8,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>EditorTextos.Program</StartupObject>
     <ApplicationIcon>icons8-typewriter-with-tablet-32.ico</ApplicationIcon>
+    <AssemblyVersion>1.2</AssemblyVersion>
+    <FileVersion>1.2</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

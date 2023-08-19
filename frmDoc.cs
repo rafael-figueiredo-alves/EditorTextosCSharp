@@ -6,6 +6,8 @@
         public ToolStripComboBox? ComboSize { get; set; }
         private string DocFilename { get; set; } = string.Empty;
 
+        private int _checkPrint;
+
         private StringReader? leitor;
         public FrmDoc(int DocNo = 0)
         {
@@ -15,6 +17,8 @@
             {
                 Text = "Sem título " + DocNo;
             }
+
+            //printDoc.BeginPrint += prin
         }
         //-------------------------------------------------------------------------------
         // Métodos para ler propriedades do RichTextBox
@@ -328,16 +332,11 @@
         }
         public void PreviewPrint()
         {
-            string Texto = DocContent.Text;
-            leitor = new StringReader(Texto);
             printPreviewDlg.Document = printDoc;
             printPreviewDlg.ShowDialog();
         }
         public void PrintDoc()
         {
-            printDlg.Document = printDoc;
-            string strTexto = DocContent.Text;
-            leitor = new StringReader(strTexto);
             if (printDlg.ShowDialog() == DialogResult.OK)
             {
                 printDoc.Print();
@@ -345,46 +344,52 @@
         }
         private void PrintDoc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            int contador = 0;
-            //defina as margens e o valor minimo
-            float MargemEsquerda = e.MarginBounds.Left - 50;
-            float MargemSuperior = e.MarginBounds.Top - 50;
-            if (MargemEsquerda < 5)
-                MargemEsquerda = 20;
-            if (MargemSuperior < 5)
-                MargemSuperior = 20;
-            Font FonteDeImpressao = DocContent.Font;
-            SolidBrush meupincel = new(Color.Black);
-            //StreamReader leitor = null;
-            //Calcula o numero de linhas por página usando as medidas das margens
-            float linhasPorPagina = e.MarginBounds.Height / FonteDeImpressao.GetHeight(e.Graphics!);
-            //define a fonte 
-            // Vamos imprimir cada linha implementando um StringReader
-            string? linha = leitor!.ReadLine();
-            while (contador < linhasPorPagina)
-            {
-                // calcula a posicao da proxima linha baseado  na altura da fonte de acordo com o dispositivo de impressão
-                float Posicao_Y = MargemSuperior + (contador * FonteDeImpressao.GetHeight(e.Graphics!));
-                // desenha a proxima linha no controle richtextbox
-                e.Graphics!.DrawString(linha, FonteDeImpressao, meupincel, MargemEsquerda, Posicao_Y, new StringFormat());
-                //conta a linha e incrementa uma unidade
-                contador += 1;
-                linha = leitor.ReadLine();
-            }
-            // se existir mais linhas imprime outra página
-            if ((linha != null))
-            {
-                e.HasMorePages = true;
-            }
-            else
-            {
-                e.HasMorePages = false;
-            }
-            meupincel.Dispose();
+            // Print the content of RichTextBox. Store the last character printed.
+            _checkPrint = DocContent.Print(_checkPrint, DocContent.TextLength, e);
+
+            // Check for more pages
+            e.HasMorePages = _checkPrint < DocContent.TextLength;
+
+            //int contador = 0;
+            ////defina as margens e o valor minimo
+            //float MargemEsquerda = e.MarginBounds.Left - 50;
+            //float MargemSuperior = e.MarginBounds.Top - 50;
+            //if (MargemEsquerda < 5)
+            //    MargemEsquerda = 20;
+            //if (MargemSuperior < 5)
+            //    MargemSuperior = 20;
+            //Font FonteDeImpressao = DocContent.Font;
+            //SolidBrush meupincel = new(Color.Black);
+            ////StreamReader leitor = null;
+            ////Calcula o numero de linhas por página usando as medidas das margens
+            //float linhasPorPagina = e.MarginBounds.Height / FonteDeImpressao.GetHeight(e.Graphics!);
+            ////define a fonte 
+            //// Vamos imprimir cada linha implementando um StringReader
+            //string? linha = leitor!.ReadLine();
+            //while (contador < linhasPorPagina)
+            //{
+            //    // calcula a posicao da proxima linha baseado  na altura da fonte de acordo com o dispositivo de impressão
+            //    float Posicao_Y = MargemSuperior + (contador * FonteDeImpressao.GetHeight(e.Graphics!));
+            //    // desenha a proxima linha no controle richtextbox
+            //    e.Graphics!.DrawString(linha, FonteDeImpressao, meupincel, MargemEsquerda, Posicao_Y, new StringFormat());
+            //    //conta a linha e incrementa uma unidade
+            //    contador += 1;
+            //    linha = leitor.ReadLine();
+            //}
+            //// se existir mais linhas imprime outra página
+            //if ((linha != null))
+            //{
+            //    e.HasMorePages = true;
+            //}
+            //else
+            //{
+            //    e.HasMorePages = false;
+            //}
+            //meupincel.Dispose();
         }
         private void DocContent_LinkClicked(object sender, LinkClickedEventArgs e)
         {
-            if((e.LinkLength > 0) && (e.LinkText != null))
+            if ((e.LinkLength > 0) && (e.LinkText != null))
             {
                 System.Diagnostics.Process.Start(e.LinkText);
             }
@@ -392,7 +397,7 @@
 
         public void IncreaseZoom()
         {
-            if(DocContent.ZoomFactor < 64)
+            if (DocContent.ZoomFactor < 64)
             {
                 DocContent.ZoomFactor += 1;
             }
@@ -400,10 +405,15 @@
 
         public void DecreaseZoom()
         {
-            if(DocContent.ZoomFactor > 1)
+            if (DocContent.ZoomFactor > 1)
             {
                 DocContent.ZoomFactor -= 1;
             }
+        }
+
+        private void printDoc_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            _checkPrint = 0;
         }
     }
 }

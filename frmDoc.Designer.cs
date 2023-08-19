@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDoc));
-            DocContent = new RichTextBox();
+            DocContent = new RichTextBoxPrintCtrl();
             OpenDlg = new OpenFileDialog();
             SaveDlg = new SaveFileDialog();
             SelectImage = new OpenFileDialog();
@@ -79,6 +79,7 @@
             // 
             // printDoc
             // 
+            printDoc.BeginPrint += printDoc_BeginPrint;
             printDoc.PrintPage += PrintDoc_PrintPage;
             // 
             // printPreviewDlg
@@ -108,7 +109,7 @@
 
         #endregion
 
-        private RichTextBox DocContent;
+        private RichTextBoxPrintCtrl DocContent;
         private SaveFileDialog SaveDlg;
         private OpenFileDialog OpenDlg;
         private OpenFileDialog SelectImage;

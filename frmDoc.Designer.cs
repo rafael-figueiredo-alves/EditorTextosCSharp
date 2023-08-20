@@ -75,6 +75,9 @@
             // 
             // printDlg
             // 
+            printDlg.AllowCurrentPage = true;
+            printDlg.AllowSelection = true;
+            printDlg.AllowSomePages = true;
             printDlg.UseEXDialog = true;
             // 
             // printDoc

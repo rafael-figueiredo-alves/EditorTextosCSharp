@@ -69,9 +69,10 @@
             toolStripSeparator6 = new ToolStripSeparator();
             MnuAumentarZoom = new ToolStripMenuItem();
             DiminuirZoomToolStripMenuItem = new ToolStripMenuItem();
-            cxPesquisa = new ToolStripTextBox();
             ajudaToolStripMenuItem = new ToolStripMenuItem();
             menuSobre = new ToolStripMenuItem();
+            cxPesquisa = new ToolStripTextBox();
+            toolStripMenuItem6 = new ToolStripMenuItem();
             toolStripMenuItem5 = new ToolStripSeparator();
             toolStrip1 = new ToolStrip();
             btnNovo = new ToolStripButton();
@@ -95,6 +96,8 @@
             BtnEsquerda = new ToolStripButton();
             BtnCentro = new ToolStripButton();
             BtnDireita = new ToolStripButton();
+            toolStripSeparator7 = new ToolStripSeparator();
+            InsMarcadores = new ToolStripButton();
             Dicas = new ToolTip(components);
             timerControles = new System.Windows.Forms.Timer(components);
             MnuVertical = new ToolStripMenuItem();
@@ -107,7 +110,7 @@
             // 
             resources.ApplyResources(menuStrip1, "menuStrip1");
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, editarToolStripMenuItem, inserirToolStripMenuItem, formatarToolStripMenuItem, Documentos, cxPesquisa, ajudaToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, editarToolStripMenuItem, inserirToolStripMenuItem, formatarToolStripMenuItem, ajudaToolStripMenuItem, Documentos, cxPesquisa, toolStripMenuItem6 });
             menuStrip1.MdiWindowListItem = Documentos;
             menuStrip1.Name = "menuStrip1";
             menuStrip1.ShowItemToolTips = true;
@@ -280,7 +283,9 @@
             // Documentos
             // 
             resources.ApplyResources(Documentos, "Documentos");
+            Documentos.Alignment = ToolStripItemAlignment.Right;
             Documentos.DropDownItems.AddRange(new ToolStripItem[] { MnuMinimizarDocs, fecharTodosOsDocumentosToolStripMenuItem, toolStripSeparator5, organizarDocumentosEmCascataToolStripMenuItem, MnuOrgDocHorizontal, organizarDocumentosVerticalmenteToolStripMenuItem, toolStripSeparator6, MnuAumentarZoom, DiminuirZoomToolStripMenuItem });
+            Documentos.Image = Properties.Resources.icons8_chevron_16;
             Documentos.Name = "Documentos";
             // 
             // MnuMinimizarDocs
@@ -335,6 +340,18 @@
             DiminuirZoomToolStripMenuItem.Name = "DiminuirZoomToolStripMenuItem";
             DiminuirZoomToolStripMenuItem.Click += DiminuirZoomToolStripMenuItem_Click;
             // 
+            // ajudaToolStripMenuItem
+            // 
+            resources.ApplyResources(ajudaToolStripMenuItem, "ajudaToolStripMenuItem");
+            ajudaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { menuSobre });
+            ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
+            // 
+            // menuSobre
+            // 
+            resources.ApplyResources(menuSobre, "menuSobre");
+            menuSobre.Name = "menuSobre";
+            menuSobre.Click += MenuSobre_Click;
+            // 
             // cxPesquisa
             // 
             resources.ApplyResources(cxPesquisa, "cxPesquisa");
@@ -348,17 +365,12 @@
             cxPesquisa.Leave += CxPesquisa_Leave;
             cxPesquisa.KeyPress += CxPesquisa_KeyPress;
             // 
-            // ajudaToolStripMenuItem
+            // toolStripMenuItem6
             // 
-            resources.ApplyResources(ajudaToolStripMenuItem, "ajudaToolStripMenuItem");
-            ajudaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { menuSobre });
-            ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            // 
-            // menuSobre
-            // 
-            resources.ApplyResources(menuSobre, "menuSobre");
-            menuSobre.Name = "menuSobre";
-            menuSobre.Click += MenuSobre_Click;
+            resources.ApplyResources(toolStripMenuItem6, "toolStripMenuItem6");
+            toolStripMenuItem6.Alignment = ToolStripItemAlignment.Right;
+            toolStripMenuItem6.Image = Properties.Resources.icons8_setup_16;
+            toolStripMenuItem6.Name = "toolStripMenuItem6";
             // 
             // toolStripMenuItem5
             // 
@@ -369,7 +381,8 @@
             // 
             resources.ApplyResources(toolStrip1, "toolStrip1");
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnNovo, BtnAbrir, BtnSalvar, BtnImprimir, toolStripSeparator1, BtnDesfazer, BtnRefazer, BtnCopiar, BtnCortar, BtnColar, toolStripSeparator2, cbFont, cbFontSize, toolStripSeparator3, BtnNegrito, BtnItalico, BtnSublinhar, toolStripSeparator4, BtnEsquerda, BtnCentro, BtnDireita });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnNovo, BtnAbrir, BtnSalvar, BtnImprimir, toolStripSeparator1, BtnDesfazer, BtnRefazer, BtnCopiar, BtnCortar, BtnColar, toolStripSeparator2, cbFont, cbFontSize, toolStripSeparator3, BtnNegrito, BtnItalico, BtnSublinhar, toolStripSeparator4, BtnEsquerda, BtnCentro, BtnDireita, toolStripSeparator7, InsMarcadores });
+            toolStrip1.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
             toolStrip1.Name = "toolStrip1";
             Dicas.SetToolTip(toolStrip1, resources.GetString("toolStrip1.ToolTip"));
             // 
@@ -532,6 +545,19 @@
             BtnDireita.Name = "BtnDireita";
             BtnDireita.Click += BtnDireita_Click;
             // 
+            // toolStripSeparator7
+            // 
+            resources.ApplyResources(toolStripSeparator7, "toolStripSeparator7");
+            toolStripSeparator7.Name = "toolStripSeparator7";
+            // 
+            // InsMarcadores
+            // 
+            resources.ApplyResources(InsMarcadores, "InsMarcadores");
+            InsMarcadores.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            InsMarcadores.Image = Properties.Resources.icons8_bullet_list_16;
+            InsMarcadores.Name = "InsMarcadores";
+            InsMarcadores.Click += InsMarcadores_Click;
+            // 
             // Dicas
             // 
             Dicas.IsBalloon = true;
@@ -644,5 +670,8 @@
         private ToolStripMenuItem apenasAHoraToolStripMenuItem;
         private ToolStripMenuItem MnuAumentarZoom;
         private ToolStripMenuItem DiminuirZoomToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator7;
+        private ToolStripButton InsMarcadores;
+        private ToolStripMenuItem toolStripMenuItem6;
     }
 }

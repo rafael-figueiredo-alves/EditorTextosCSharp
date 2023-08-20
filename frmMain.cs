@@ -51,8 +51,9 @@ namespace EditorTextos
 
         private void MenuSobre_Click(object sender, EventArgs e)
         {
-            FrmAbout formAbout = new();
-            _ = formAbout.ShowDialog();
+            DocWindow()!.ReplaceText("hello", "olá");
+            //FrmAbout formAbout = new();
+            //_ = formAbout.ShowDialog();
         }
 
         private void EncerrarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -110,6 +111,7 @@ namespace EditorTextos
                 refazerToolStripMenuItem.Enabled = DocWindow()!.AbleREDO();
                 copiarToolStripMenuItem.Enabled = true;
                 colarToolStripMenuItem.Enabled = DocWindow()!.AblePASTE();
+                InsMarcadores.Enabled = true;
                 recortarToolStripMenuItem.Enabled = true;
                 selecionarTudoToolStripMenuItem.Enabled = true;
                 fecharTodosOsDocumentosToolStripMenuItem.Enabled = true;
@@ -135,6 +137,7 @@ namespace EditorTextos
                 BtnNegrito.Checked = (DocWindow()!.IsBold());
                 BtnItalico.Checked = (DocWindow()!.IsItalic());
                 BtnSublinhar.Checked = (DocWindow()!.IsUnderline());
+                InsMarcadores.Checked = (DocWindow()!.usingBullets());
             }
             else
             {
@@ -154,6 +157,7 @@ namespace EditorTextos
                 BtnCentro.Enabled = false;
                 BtnDireita.Enabled = false;
                 cxPesquisa.Enabled = false;
+                InsMarcadores.Enabled = false;
                 salvarComoToolStripMenuItem.Enabled = false;
                 salvarToolStripMenuItem.Enabled = false;
                 desfazerToolStripMenuItem.Enabled = false;
@@ -382,6 +386,21 @@ namespace EditorTextos
         private void DiminuirZoomToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DocWindow()!.DecreaseZoom();
+        }
+
+        private void InsMarcadores_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.Left = this.Left + (this.Width - form.Width) - 10;
+            form.Top = this.Top + (this.Height - form.Height) - 10;
+            form.button1.Click += (s, e) =>
+            {
+                DocWindow()!.ReplaceText("Oi", form.textBox1.Text);
+                DocWindow()!.DocFocus();
+            };
+            form.Show();
+            //DocWindow()!.SetBullets();
+            //DocWindow()!.DocFocus();
         }
     }
 }

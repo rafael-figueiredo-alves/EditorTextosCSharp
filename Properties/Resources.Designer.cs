@@ -93,9 +93,29 @@ namespace EditorTextos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_bullet_list_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-bullet-list-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_center_16 {
             get {
                 object obj = ResourceManager.GetObject("icons8-center-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_chevron_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-chevron-16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -186,6 +206,16 @@ namespace EditorTextos.Properties {
         internal static System.Drawing.Bitmap icons8_send_to_printer_16 {
             get {
                 object obj = ResourceManager.GetObject("icons8-send-to-printer-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_setup_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-setup-16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

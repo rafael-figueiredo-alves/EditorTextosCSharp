@@ -51,6 +51,8 @@
             colarToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem4 = new ToolStripSeparator();
             selecionarTudoToolStripMenuItem = new ToolStripMenuItem();
+            localizarToolStripMenuItem = new ToolStripMenuItem();
+            substituirToolStripMenuItem = new ToolStripMenuItem();
             inserirToolStripMenuItem = new ToolStripMenuItem();
             MnuDataHora = new ToolStripMenuItem();
             dataEHoraCompletaToolStripMenuItem = new ToolStripMenuItem();
@@ -59,6 +61,8 @@
             MnuInserirImagem = new ToolStripMenuItem();
             formatarToolStripMenuItem = new ToolStripMenuItem();
             MnuFonte = new ToolStripMenuItem();
+            ajudaToolStripMenuItem = new ToolStripMenuItem();
+            menuSobre = new ToolStripMenuItem();
             Documentos = new ToolStripMenuItem();
             MnuMinimizarDocs = new ToolStripMenuItem();
             fecharTodosOsDocumentosToolStripMenuItem = new ToolStripMenuItem();
@@ -69,8 +73,6 @@
             toolStripSeparator6 = new ToolStripSeparator();
             MnuAumentarZoom = new ToolStripMenuItem();
             DiminuirZoomToolStripMenuItem = new ToolStripMenuItem();
-            ajudaToolStripMenuItem = new ToolStripMenuItem();
-            menuSobre = new ToolStripMenuItem();
             cxPesquisa = new ToolStripTextBox();
             toolStripMenuItem6 = new ToolStripMenuItem();
             toolStripMenuItem5 = new ToolStripSeparator();
@@ -99,11 +101,16 @@
             toolStripSeparator7 = new ToolStripSeparator();
             InsMarcadores = new ToolStripButton();
             Dicas = new ToolTip(components);
+            statusBar = new StatusStrip();
+            stLinha = new ToolStripStatusLabel();
+            stColuna = new ToolStripStatusLabel();
+            stZoomFactor = new ToolStripStatusLabel();
             timerControles = new System.Windows.Forms.Timer(components);
             MnuVertical = new ToolStripMenuItem();
             toolStripMenuItem7 = new ToolStripSeparator();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
+            statusBar.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -183,7 +190,7 @@
             // editarToolStripMenuItem
             // 
             resources.ApplyResources(editarToolStripMenuItem, "editarToolStripMenuItem");
-            editarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { desfazerToolStripMenuItem, refazerToolStripMenuItem, toolStripMenuItem3, copiarToolStripMenuItem, recortarToolStripMenuItem, colarToolStripMenuItem, toolStripMenuItem4, selecionarTudoToolStripMenuItem });
+            editarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { desfazerToolStripMenuItem, refazerToolStripMenuItem, toolStripMenuItem3, copiarToolStripMenuItem, recortarToolStripMenuItem, colarToolStripMenuItem, toolStripMenuItem4, selecionarTudoToolStripMenuItem, localizarToolStripMenuItem, substituirToolStripMenuItem });
             editarToolStripMenuItem.Name = "editarToolStripMenuItem";
             // 
             // desfazerToolStripMenuItem
@@ -232,6 +239,18 @@
             selecionarTudoToolStripMenuItem.Name = "selecionarTudoToolStripMenuItem";
             selecionarTudoToolStripMenuItem.Click += SelecionarTudoToolStripMenuItem_Click;
             // 
+            // localizarToolStripMenuItem
+            // 
+            resources.ApplyResources(localizarToolStripMenuItem, "localizarToolStripMenuItem");
+            localizarToolStripMenuItem.Name = "localizarToolStripMenuItem";
+            localizarToolStripMenuItem.Click += localizarToolStripMenuItem_Click;
+            // 
+            // substituirToolStripMenuItem
+            // 
+            resources.ApplyResources(substituirToolStripMenuItem, "substituirToolStripMenuItem");
+            substituirToolStripMenuItem.Name = "substituirToolStripMenuItem";
+            substituirToolStripMenuItem.Click += substituirToolStripMenuItem_Click;
+            // 
             // inserirToolStripMenuItem
             // 
             resources.ApplyResources(inserirToolStripMenuItem, "inserirToolStripMenuItem");
@@ -279,6 +298,18 @@
             resources.ApplyResources(MnuFonte, "MnuFonte");
             MnuFonte.Name = "MnuFonte";
             MnuFonte.Click += MnuFonte_Click;
+            // 
+            // ajudaToolStripMenuItem
+            // 
+            resources.ApplyResources(ajudaToolStripMenuItem, "ajudaToolStripMenuItem");
+            ajudaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { menuSobre });
+            ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
+            // 
+            // menuSobre
+            // 
+            resources.ApplyResources(menuSobre, "menuSobre");
+            menuSobre.Name = "menuSobre";
+            menuSobre.Click += MenuSobre_Click;
             // 
             // Documentos
             // 
@@ -339,18 +370,6 @@
             resources.ApplyResources(DiminuirZoomToolStripMenuItem, "DiminuirZoomToolStripMenuItem");
             DiminuirZoomToolStripMenuItem.Name = "DiminuirZoomToolStripMenuItem";
             DiminuirZoomToolStripMenuItem.Click += DiminuirZoomToolStripMenuItem_Click;
-            // 
-            // ajudaToolStripMenuItem
-            // 
-            resources.ApplyResources(ajudaToolStripMenuItem, "ajudaToolStripMenuItem");
-            ajudaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { menuSobre });
-            ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            // 
-            // menuSobre
-            // 
-            resources.ApplyResources(menuSobre, "menuSobre");
-            menuSobre.Name = "menuSobre";
-            menuSobre.Click += MenuSobre_Click;
             // 
             // cxPesquisa
             // 
@@ -564,6 +583,32 @@
             Dicas.ToolTipIcon = ToolTipIcon.Info;
             Dicas.ToolTipTitle = "Dica:";
             // 
+            // statusBar
+            // 
+            resources.ApplyResources(statusBar, "statusBar");
+            statusBar.ImageScalingSize = new Size(20, 20);
+            statusBar.Items.AddRange(new ToolStripItem[] { stLinha, stColuna, stZoomFactor });
+            statusBar.Name = "statusBar";
+            Dicas.SetToolTip(statusBar, resources.GetString("statusBar.ToolTip"));
+            // 
+            // stLinha
+            // 
+            resources.ApplyResources(stLinha, "stLinha");
+            stLinha.BorderSides = ToolStripStatusLabelBorderSides.Left | ToolStripStatusLabelBorderSides.Top | ToolStripStatusLabelBorderSides.Right | ToolStripStatusLabelBorderSides.Bottom;
+            stLinha.Name = "stLinha";
+            // 
+            // stColuna
+            // 
+            resources.ApplyResources(stColuna, "stColuna");
+            stColuna.BorderSides = ToolStripStatusLabelBorderSides.Left | ToolStripStatusLabelBorderSides.Top | ToolStripStatusLabelBorderSides.Right | ToolStripStatusLabelBorderSides.Bottom;
+            stColuna.Name = "stColuna";
+            // 
+            // stZoomFactor
+            // 
+            resources.ApplyResources(stZoomFactor, "stZoomFactor");
+            stZoomFactor.BorderSides = ToolStripStatusLabelBorderSides.Left | ToolStripStatusLabelBorderSides.Top | ToolStripStatusLabelBorderSides.Right | ToolStripStatusLabelBorderSides.Bottom;
+            stZoomFactor.Name = "stZoomFactor";
+            // 
             // timerControles
             // 
             timerControles.Enabled = true;
@@ -584,6 +629,7 @@
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(statusBar);
             Controls.Add(toolStrip1);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
@@ -594,6 +640,8 @@
             menuStrip1.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            statusBar.ResumeLayout(false);
+            statusBar.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -673,5 +721,11 @@
         private ToolStripSeparator toolStripSeparator7;
         private ToolStripButton InsMarcadores;
         private ToolStripMenuItem toolStripMenuItem6;
+        private StatusStrip statusBar;
+        private ToolStripStatusLabel stLinha;
+        private ToolStripStatusLabel stColuna;
+        private ToolStripStatusLabel stZoomFactor;
+        private ToolStripMenuItem localizarToolStripMenuItem;
+        private ToolStripMenuItem substituirToolStripMenuItem;
     }
 }

@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace EditorTextos
 {
     public partial class FrmMain : Form
@@ -127,8 +129,16 @@ namespace EditorTextos
                 MnuConfigImpressao.Enabled = true;
                 MnuVisualizarImpressao.Enabled = true;
                 imprimirToolStripMenuItem.Enabled = true;
-                MnuAumentarZoom.Enabled = true;
-                DiminuirZoomToolStripMenuItem.Enabled = true;
+                MnuAumentarZoom.Enabled = DocWindow()!.CanIncreaseZoom();
+                DiminuirZoomToolStripMenuItem.Enabled = DocWindow()!.CanDecreaseZoom();
+                substituirToolStripMenuItem.Visible = true;
+                localizarToolStripMenuItem.Visible = true;
+                Documentos.Visible = true;
+                statusBar.Visible = true;
+
+                stLinha.Text = "Linha: " + DocWindow()!.GetLinha().ToString();
+                stColuna.Text = "Coluna: " + DocWindow()!.GetColuna().ToString();
+                stZoomFactor.Text = "Fator de Zoom: " + DocWindow()!.ZoomFactor().ToString() + "x";
 
                 BtnEsquerda.Checked = (DocWindow()!.DocAlignment() == HorizontalAlignment.Left);
                 BtnCentro.Checked = (DocWindow()!.DocAlignment() == HorizontalAlignment.Center);
@@ -180,6 +190,10 @@ namespace EditorTextos
                 imprimirToolStripMenuItem.Enabled = false;
                 MnuAumentarZoom.Enabled = false;
                 DiminuirZoomToolStripMenuItem.Enabled = false;
+                Documentos.Visible = false;
+                statusBar.Visible = false;
+                substituirToolStripMenuItem.Visible = false;
+                localizarToolStripMenuItem.Visible = false;
             }
         }
 
@@ -390,17 +404,31 @@ namespace EditorTextos
 
         private void InsMarcadores_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
-            form.Left = this.Left + (this.Width - form.Width) - 10;
-            form.Top = this.Top + (this.Height - form.Height) - 10;
-            form.button1.Click += (s, e) =>
+            DocWindow()!.SetBullets();
+            DocWindow()!.DocFocus();
+        }
+
+        private void localizarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cxPesquisa.Focus();
+        }
+
+        private void substituirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dlgReplace frmReplace = new dlgReplace();
+            frmReplace.Left = this.Left + (this.Width - frmReplace.Width) - 10;
+            frmReplace.Top = this.Top + (this.Height - frmReplace.Height) - 10;
+            frmReplace.btnSubstituir.Click += (s, e) =>
             {
-                DocWindow()!.ReplaceText("Oi", form.textBox1.Text);
+                DocWindow()!.ReplaceText(frmReplace.textFrom.Text, frmReplace.textTo.Text);
                 DocWindow()!.DocFocus();
             };
-            form.Show();
-            //DocWindow()!.SetBullets();
-            //DocWindow()!.DocFocus();
+            frmReplace.btnSubstituirTudo.Click += (s, e) =>
+            {
+                DocWindow()!.ReplaceText(frmReplace.textFrom.Text, frmReplace.textTo.Text, true);
+                DocWindow()!.DocFocus();
+            };
+            frmReplace.Show();
         }
     }
 }

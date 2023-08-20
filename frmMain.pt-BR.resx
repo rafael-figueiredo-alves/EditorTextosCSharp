@@ -152,28 +152,34 @@
     <value>75, 29</value>
   </data>
   <data name="desfazerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 26</value>
+    <value>224, 26</value>
   </data>
   <data name="refazerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 26</value>
+    <value>224, 26</value>
   </data>
   <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 6</value>
+    <value>221, 6</value>
   </data>
   <data name="copiarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 26</value>
+    <value>224, 26</value>
   </data>
   <data name="recortarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 26</value>
+    <value>224, 26</value>
   </data>
   <data name="colarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 26</value>
+    <value>224, 26</value>
   </data>
   <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 6</value>
+    <value>221, 6</value>
   </data>
   <data name="selecionarTudoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 26</value>
+    <value>224, 26</value>
+  </data>
+  <data name="localizarToolStripMenuItem.Text" xml:space="preserve">
+    <value>Pesquisar...</value>
+  </data>
+  <data name="substituirToolStripMenuItem.Text" xml:space="preserve">
+    <value>Substituir...</value>
   </data>
   <data name="editarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 29</value>
@@ -498,6 +504,21 @@
   </data>
   <data name="toolStrip1.Text" xml:space="preserve">
     <value>toolStrip1</value>
+  </data>
+  <data name="stLinha.Text" xml:space="preserve">
+    <value>toolStripStatusLabel1</value>
+  </data>
+  <data name="stColuna.Text" xml:space="preserve">
+    <value>toolStripStatusLabel1</value>
+  </data>
+  <data name="stZoomFactor.Text" xml:space="preserve">
+    <value>toolStripStatusLabel1</value>
+  </data>
+  <data name="statusBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>914, 30</value>
+  </data>
+  <data name="statusBar.Text" xml:space="preserve">
+    <value>statusStrip1</value>
   </data>
   <data name="MnuVertical.Text" xml:space="preserve">
     <value>Organizar documentos Verticalmente</value>

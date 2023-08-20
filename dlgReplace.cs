@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EditorTextos
 {
-    public partial class Form1 : Form
+    public partial class dlgReplace : Form
     {
-        public Form1()
+        public dlgReplace()
         {
             InitializeComponent();
         }

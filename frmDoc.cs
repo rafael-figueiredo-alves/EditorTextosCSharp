@@ -1,4 +1,6 @@
-﻿namespace EditorTextos
+﻿using System.Windows.Forms;
+
+namespace EditorTextos
 {
     public partial class FrmDoc : Form
     {
@@ -87,6 +89,39 @@
         {
             DataFormats.Format fm = DataFormats.GetFormat(DataFormats.Rtf);
             return DocContent.CanPaste(fm);
+        }
+
+        public bool CanIncreaseZoom()
+        {
+            return DocContent.ZoomFactor >= 1 && DocContent.ZoomFactor < 64;
+        }
+
+        public bool CanDecreaseZoom()
+        {
+            return DocContent.ZoomFactor <= 64 && DocContent.ZoomFactor > 1;
+        }
+
+        public int ZoomFactor()
+        {
+            return Convert.ToInt32(DocContent.ZoomFactor);
+        }
+
+        public int GetLinha()
+        {
+            // Get the line.
+            int index = DocContent.SelectionStart;
+            return DocContent.GetLineFromCharIndex(index);
+        }
+
+        public int GetColuna()
+        {
+            // Get the line.
+            int index = DocContent.SelectionStart;
+            int line = DocContent.GetLineFromCharIndex(index);
+
+            // Get the column.
+            int firstChar = DocContent.GetFirstCharIndexFromLine(line);
+            return index - firstChar;
         }
 
         public bool usingBullets()
@@ -383,14 +418,31 @@
             }
         }
 
-        public void ReplaceText(string textFrom, string textTo)
+        public void ReplaceText(string textFrom, string textTo, bool Tudo = false)
         {
-            int Initial_position = DocContent.Find(textFrom);
-            if (Initial_position >= 0)
+            if(Tudo)
             {
-                DocContent.SelectionStart = Initial_position;
-                DocContent.SelectionLength = textFrom.Length;
-                DocContent.SelectedText = textTo;
+                int Initial_position = 0;
+                do
+                {
+                    Initial_position = DocContent.Find(textFrom);
+                    if (Initial_position >= 0)
+                    {
+                        DocContent.SelectionStart = Initial_position;
+                        DocContent.SelectionLength = textFrom.Length;
+                        DocContent.SelectedText = textTo;
+                    }
+                } while (Initial_position >= 0);
+            }
+            else
+            {
+                int Initial_position = DocContent.Find(textFrom);
+                if (Initial_position >= 0)
+                {
+                    DocContent.SelectionStart = Initial_position;
+                    DocContent.SelectionLength = textFrom.Length;
+                    DocContent.SelectedText = textTo;
+                }
             }
         }
 

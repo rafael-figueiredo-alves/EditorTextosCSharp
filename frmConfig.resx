@@ -117,25 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TxtHistorico.Text" xml:space="preserve">
-    <value>Versão 1.3
-=&gt; Implentado uso de Marcadores.
-=&gt; Modificado menu Documentos para seta próximo dos controles da janela de documento.
-=&gt; Adicionada barra de status com informações básicas.
-=&gt; Implementada classe para gerenciar configurações básicas do editor.
-
-Versão 1.2
-=&gt; Implentada melhoria na impressão do documento. Agora é impresso com
-      imagens e formatação correspondente ao que é visualizado no editor.
-
-Versão 1.1
-=&gt; Implentados novos subtipos para inserir data e hora
-=&gt; Ajustado comportamento que fazia o sistema fechar sozinho
-=&gt; Adicionado ao menu Documento, Recursos para aumentar
-      e diminuir Zoom do documento
-
-Versão 1.0
-=&gt; Primeiro release oficial
-=&gt; Recursos básicos de Editor de Texto</value>
-  </data>
 </root>

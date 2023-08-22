@@ -41,6 +41,7 @@
             // 
             // DocContent
             // 
+            DocContent.AcceptsTab = true;
             DocContent.Dock = DockStyle.Fill;
             DocContent.Location = new Point(0, 0);
             DocContent.Margin = new Padding(3, 4, 3, 4);

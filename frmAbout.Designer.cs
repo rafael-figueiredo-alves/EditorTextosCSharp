@@ -66,7 +66,7 @@
             lblVersion.Name = "lblVersion";
             lblVersion.Size = new Size(75, 20);
             lblVersion.TabIndex = 2;
-            lblVersion.Text = "versão 1.2";
+            lblVersion.Text = "versão 1.3";
             // 
             // lblCopyright
             // 

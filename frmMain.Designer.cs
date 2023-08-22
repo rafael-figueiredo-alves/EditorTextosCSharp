@@ -390,6 +390,7 @@
             toolStripMenuItem6.Alignment = ToolStripItemAlignment.Right;
             toolStripMenuItem6.Image = Properties.Resources.icons8_setup_16;
             toolStripMenuItem6.Name = "toolStripMenuItem6";
+            toolStripMenuItem6.Click += toolStripMenuItem6_Click;
             // 
             // toolStripMenuItem5
             // 

@@ -20,6 +20,11 @@ namespace EditorTextos
                 Text = "Sem título " + DocNo;
             }
 
+            DocContent.DetectUrls = Config.Settings().settings().DetectURLs;
+            DocContent.ShowSelectionMargin = Config.Settings().settings().UseMargins;
+            DocContent.Font = new Font(Config.Settings().settings().DefaultFont, Config.Settings().settings().DefaultFontSize);
+            DocContent.SelectionFont = new Font(Config.Settings().settings().DefaultFont, Config.Settings().settings().DefaultFontSize);
+
             //printDoc.BeginPrint += prin
         }
         //-------------------------------------------------------------------------------
@@ -420,7 +425,7 @@ namespace EditorTextos
 
         public void ReplaceText(string textFrom, string textTo, bool Tudo = false)
         {
-            if(Tudo)
+            if (Tudo)
             {
                 int Initial_position = 0;
                 do

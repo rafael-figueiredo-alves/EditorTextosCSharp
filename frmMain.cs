@@ -53,9 +53,8 @@ namespace EditorTextos
 
         private void MenuSobre_Click(object sender, EventArgs e)
         {
-            DocWindow()!.ReplaceText("hello", "olá");
-            //FrmAbout formAbout = new();
-            //_ = formAbout.ShowDialog();
+            FrmAbout formAbout = new();
+            _ = formAbout.ShowDialog();
         }
 
         private void EncerrarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -429,6 +428,12 @@ namespace EditorTextos
                 DocWindow()!.DocFocus();
             };
             frmReplace.Show();
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            frmConfig formConfig = new frmConfig();
+            formConfig.ShowDialog();
         }
     }
 }

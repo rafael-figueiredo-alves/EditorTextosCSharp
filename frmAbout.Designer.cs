@@ -42,7 +42,7 @@
             // 
             // imageLogo
             // 
-            imageLogo.Image = Properties.Resources.icons8_typewriter_with_tablet_100;
+            imageLogo.Image = (Image)resources.GetObject("imageLogo.Image");
             imageLogo.Location = new Point(12, 12);
             imageLogo.Name = "imageLogo";
             imageLogo.Size = new Size(100, 100);
@@ -66,7 +66,7 @@
             lblVersion.Name = "lblVersion";
             lblVersion.Size = new Size(75, 20);
             lblVersion.TabIndex = 2;
-            lblVersion.Text = "versão 1.3";
+            lblVersion.Text = "versão 1.4";
             // 
             // lblCopyright
             // 

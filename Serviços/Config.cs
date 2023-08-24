@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Text.Json;
 
-namespace EditorTextos
+namespace EditorTextos.Serviços
 {
     public class Config
     {
@@ -12,42 +12,42 @@ namespace EditorTextos
 
         public static Config Settings()
         {
-            if(Instance == null)
+            if (Instance == null)
             {
                 Instance = new Config();
             }
             return Instance;
         }
-        private Config() 
-        { 
+        private Config()
+        {
             SettingsFilePath = new FileInfo(Path.Combine(Path.GetDirectoryName(
                                 Assembly.GetExecutingAssembly().Location)!, @"settings.json")).ToString();
 
-            if(!Path.Exists(SettingsFilePath))
+            if (!Path.Exists(SettingsFilePath))
             {
                 setting = new Configuration();
             }
             else
             {
-                using(StreamReader sr = new StreamReader(SettingsFilePath)) 
-                { 
+                using (StreamReader sr = new StreamReader(SettingsFilePath))
+                {
                     string JSON = sr.ReadToEnd();
                     setting = JsonSerializer.Deserialize<Configuration>(JSON)!;
                 }
             }
         }
 
-        public Configuration settings() 
+        public Configuration settings()
         {
-            return setting; 
+            return setting;
         }
 
         public bool SaveSettings()
         {
-            string _JSON = JsonSerializer.Serialize<Configuration>(setting).ToString();
+            string _JSON = JsonSerializer.Serialize(setting).ToString();
             try
             {
-                System.IO.File.WriteAllText(SettingsFilePath, _JSON);
+                File.WriteAllText(SettingsFilePath, _JSON);
                 return true;
             }
             catch

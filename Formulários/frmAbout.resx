@@ -121,7 +121,7 @@
   <data name="imageLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAACApJREFUeF7tnWlsVFUUx5tIOmhIRIwJfNIYxRgkkUT2TUHodCjQdmbAFmTrwlKm
+        EAAACxABrSO9dQAACApJREFUeF7tnWlsVFUUx5tIOmhIRIwJfNIYxRgkkUT2TUHodCjQdmbAFmTrwlKm
         tGWxM20tZQk7KAXaAt0oO11gSpDaAlMWQyLyhRhDFBGX8EESESOKSI7vXN4b3505JTDbmzvcf/IL9PDm
         3fM//3lb0ylxUlJSUlJSUlJSUlJST4tSc4tftzuKCmy5rm02h/NwVKD0gj3Z8wtfU9uMfU3NKexry3W6
         FfMQzVgdrmP4plHbjk3ZHYVma67zd2oAgZK+pBSWb6tRqIb0xR+T2wSKNdd1O3WRK0FtP7ZkdXw0QDky
@@ -160,13 +160,16 @@
   </data>
   <data name="TxtHistorico.Text" xml:space="preserve">
     <value>Versão 1.4
-=&gt; Implementada funcionalidade de Substituir Texto
-=&gt; Reformulada interface (novos ícones e aumentado tamanho dos botões)
-=&gt; Barras de Ferramentas separadas (Padrão e Formatação)
+=&gt; Implementada funcionalidade de Substituir Texto.
+=&gt; Reformulada interface (novos ícones e aumentado tamanho dos botões).
+=&gt; Barras de Ferramentas separadas (Padrão e Formatação).
+=&gt; Adicionado botão para alterar cor da fonte.
+=&gt; Adicionada ferramenta de formatação Marcador de Textos (Highlighter).
+=&gt; Ajustado visual da barra de status.
 
 Versão 1.3
 =&gt; Implementado uso de Marcadores.
-=&gt; Modificado menu Documentos para seta próximo dos controles da janela de documento.
+=&gt; Modificado menu Documentos para uma seta próximo dos controles da janela de documento.
 =&gt; Adicionada barra de status com informações básicas.
 =&gt; Implementada classe para gerenciar configurações básicas do editor.
 

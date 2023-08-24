@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EditorTextos.Serviços;
 
 namespace EditorTextos
 {
@@ -34,6 +35,12 @@ namespace EditorTextos
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(cbFontSize.Text))
+            {
+                MessageBox.Show("Não é possível salvar configurações sem informar ou selecionar tamanho padrão para fonte dos documentos", "Ocorreu um problema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             Config.Settings().settings().DetectURLs = chDetectURLS.Checked;
             Config.Settings().settings().UseMargins = chUseMargins.Checked;
             Config.Settings().settings().DefaultFont = cbFont.Text;

@@ -1,7 +1,7 @@
 ﻿using System.Drawing.Printing;
 using System.Runtime.InteropServices;
 
-namespace EditorTextos
+namespace EditorTextos.Componentes
 {
     public class RichTextBoxPrintCtrl : RichTextBox
     {
@@ -28,8 +28,8 @@ namespace EditorTextos
         [StructLayout(LayoutKind.Sequential)]
         private struct FORMATRANGE
         {
-            public IntPtr hdc;             //Actual DC to draw on
-            public IntPtr hdcTarget;       //Target DC for determining text formatting
+            public nint hdc;             //Actual DC to draw on
+            public nint hdcTarget;       //Target DC for determining text formatting
             public RECT rc;                //Region of the DC to draw to (in twips)
             public RECT rcPage;            //Region of the whole DC (page size) (in twips)
             public CHARRANGE chrg;         //Range of text to draw (see earlier declaration)
@@ -39,7 +39,7 @@ namespace EditorTextos
         private const int EM_FORMATRANGE = WM_USER + 57;
 
         [DllImport("USER32.dll")]
-        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
+        private static extern nint SendMessage(nint hWnd, int msg, nint wp, nint lp);
 
         // Render the contents of the RichTextBox for printing
         //  Return the last character printed + 1 (printing start from this point for next page)
@@ -59,7 +59,7 @@ namespace EditorTextos
             rectPage.Left = (int)(e.PageBounds.Left * anInch);
             rectPage.Right = (int)(e.PageBounds.Right * anInch);
 
-            IntPtr hdc = e.Graphics.GetHdc();
+            nint hdc = e.Graphics.GetHdc();
 
             FORMATRANGE fmtRange;
             fmtRange.chrg.cpMax = charTo;               //Indicate character from to character to 
@@ -69,13 +69,13 @@ namespace EditorTextos
             fmtRange.rc = rectToPrint;             //Indicate the area on page to print
             fmtRange.rcPage = rectPage;            //Indicate size of page
 
-            IntPtr res = IntPtr.Zero;
+            nint res = nint.Zero;
 
-            IntPtr wparam = IntPtr.Zero;
-            wparam = new IntPtr(1);
+            nint wparam = nint.Zero;
+            wparam = new nint(1);
 
             //Get the pointer to the FORMATRANGE structure in memory
-            IntPtr lparam = IntPtr.Zero;
+            nint lparam = nint.Zero;
             lparam = Marshal.AllocCoTaskMem(Marshal.SizeOf(fmtRange));
             Marshal.StructureToPtr(fmtRange, lparam, false);
 

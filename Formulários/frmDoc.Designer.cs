@@ -1,4 +1,6 @@
-﻿namespace EditorTextos
+﻿using EditorTextos.Componentes;
+
+namespace EditorTextos
 {
     partial class FrmDoc
     {

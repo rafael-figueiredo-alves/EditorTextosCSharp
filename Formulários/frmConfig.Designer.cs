@@ -59,6 +59,7 @@
             // 
             // cbFont
             // 
+            cbFont.DropDownStyle = ComboBoxStyle.DropDownList;
             cbFont.FormattingEnabled = true;
             cbFont.Location = new Point(114, 123);
             cbFont.Name = "cbFont";

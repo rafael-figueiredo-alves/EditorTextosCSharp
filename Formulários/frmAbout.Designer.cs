@@ -80,7 +80,7 @@
             // 
             // btnFechar
             // 
-            btnFechar.Location = new Point(457, 381);
+            btnFechar.Location = new Point(567, 380);
             btnFechar.Name = "btnFechar";
             btnFechar.Size = new Size(89, 33);
             btnFechar.TabIndex = 4;
@@ -93,7 +93,7 @@
             grHistorico.Controls.Add(TxtHistorico);
             grHistorico.Location = new Point(12, 127);
             grHistorico.Name = "grHistorico";
-            grHistorico.Size = new Size(534, 248);
+            grHistorico.Size = new Size(647, 248);
             grHistorico.TabIndex = 5;
             grHistorico.TabStop = false;
             grHistorico.Text = " Histórico de versões ";
@@ -107,7 +107,8 @@
             TxtHistorico.Multiline = true;
             TxtHistorico.Name = "TxtHistorico";
             TxtHistorico.ReadOnly = true;
-            TxtHistorico.Size = new Size(528, 222);
+            TxtHistorico.ScrollBars = ScrollBars.Vertical;
+            TxtHistorico.Size = new Size(641, 222);
             TxtHistorico.TabIndex = 0;
             TxtHistorico.Text = resources.GetString("TxtHistorico.Text");
             // 
@@ -115,7 +116,7 @@
             // 
             AutoScaleMode = AutoScaleMode.None;
             AutoSize = true;
-            ClientSize = new Size(558, 426);
+            ClientSize = new Size(671, 419);
             ControlBox = false;
             Controls.Add(grHistorico);
             Controls.Add(btnFechar);

@@ -76,7 +76,7 @@
             cxPesquisa = new ToolStripTextBox();
             toolStripMenuItem6 = new ToolStripMenuItem();
             toolStripMenuItem5 = new ToolStripSeparator();
-            toolStrip1 = new ToolStrip();
+            BarraPadrao = new ToolStrip();
             btnNovo = new ToolStripButton();
             BtnAbrir = new ToolStripButton();
             BtnSalvar = new ToolStripButton();
@@ -88,39 +88,49 @@
             BtnCortar = new ToolStripButton();
             BtnColar = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
+            BtnInsImagem = new ToolStripButton();
+            btnInsDataHora = new ToolStripDropDownButton();
+            toolStripMenuItem8 = new ToolStripMenuItem();
+            toolStripMenuItem9 = new ToolStripMenuItem();
+            toolStripMenuItem10 = new ToolStripMenuItem();
+            toolStripSeparator8 = new ToolStripSeparator();
+            btnZoomOut = new ToolStripButton();
+            BtnZoomIn = new ToolStripButton();
             Dicas = new ToolTip(components);
             statusBar = new StatusStrip();
+            toolStripStatusLabel3 = new ToolStripStatusLabel();
             stLinha = new ToolStripStatusLabel();
+            toolStripStatusLabel2 = new ToolStripStatusLabel();
             stColuna = new ToolStripStatusLabel();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
             stZoomFactor = new ToolStripStatusLabel();
-            toolStrip2 = new ToolStrip();
+            BarraFormatacao = new ToolStrip();
             cbFont = new ToolStripComboBox();
             cbFontSize = new ToolStripComboBox();
             toolStripSeparator3 = new ToolStripSeparator();
             BtnNegrito = new ToolStripButton();
             BtnItalico = new ToolStripButton();
             BtnSublinhar = new ToolStripButton();
+            btnCorDaFonte = new ToolStripButton();
             toolStripSeparator4 = new ToolStripSeparator();
             BtnEsquerda = new ToolStripButton();
             BtnCentro = new ToolStripButton();
             BtnDireita = new ToolStripButton();
             toolStripSeparator7 = new ToolStripSeparator();
             InsMarcadores = new ToolStripButton();
+            toolStripSeparator9 = new ToolStripSeparator();
+            btnHighlighter = new ToolStripButton();
             timerControles = new System.Windows.Forms.Timer(components);
             MnuVertical = new ToolStripMenuItem();
             toolStripMenuItem7 = new ToolStripSeparator();
-            BtnInsImagem = new ToolStripButton();
-            btnInsDataHora = new ToolStripDropDownButton();
-            toolStripSeparator8 = new ToolStripSeparator();
-            btnCorDaFonte = new ToolStripButton();
-            toolStripButton1 = new ToolStripButton();
-            toolStripSeparator9 = new ToolStripSeparator();
-            btnZoomOut = new ToolStripButton();
-            BtnZoomIn = new ToolStripButton();
+            DlgColor = new ColorDialog();
+            toolStripSeparator10 = new ToolStripSeparator();
+            btnVisualizarImpressao = new ToolStripButton();
+            btnConfigPrinter = new ToolStripButton();
             menuStrip1.SuspendLayout();
-            toolStrip1.SuspendLayout();
+            BarraPadrao.SuspendLayout();
             statusBar.SuspendLayout();
-            toolStrip2.SuspendLayout();
+            BarraFormatacao.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -405,15 +415,15 @@
             resources.ApplyResources(toolStripMenuItem5, "toolStripMenuItem5");
             toolStripMenuItem5.Name = "toolStripMenuItem5";
             // 
-            // toolStrip1
+            // BarraPadrao
             // 
-            resources.ApplyResources(toolStrip1, "toolStrip1");
-            toolStrip1.AllowDrop = true;
-            toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnNovo, BtnAbrir, BtnSalvar, BtnImprimir, toolStripSeparator1, BtnDesfazer, BtnRefazer, BtnCopiar, BtnCortar, BtnColar, toolStripSeparator2, BtnInsImagem, btnInsDataHora, toolStripSeparator8, btnZoomOut, BtnZoomIn });
-            toolStrip1.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            toolStrip1.Name = "toolStrip1";
-            Dicas.SetToolTip(toolStrip1, resources.GetString("toolStrip1.ToolTip"));
+            resources.ApplyResources(BarraPadrao, "BarraPadrao");
+            BarraPadrao.AllowItemReorder = true;
+            BarraPadrao.ImageScalingSize = new Size(20, 20);
+            BarraPadrao.Items.AddRange(new ToolStripItem[] { btnNovo, BtnAbrir, BtnSalvar, toolStripSeparator10, btnConfigPrinter, btnVisualizarImpressao, BtnImprimir, toolStripSeparator1, BtnDesfazer, BtnRefazer, BtnCopiar, BtnCortar, BtnColar, toolStripSeparator2, BtnInsImagem, btnInsDataHora, toolStripSeparator8, btnZoomOut, BtnZoomIn });
+            BarraPadrao.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            BarraPadrao.Name = "BarraPadrao";
+            Dicas.SetToolTip(BarraPadrao, resources.GetString("BarraPadrao.ToolTip"));
             // 
             // btnNovo
             // 
@@ -488,6 +498,57 @@
             resources.ApplyResources(toolStripSeparator2, "toolStripSeparator2");
             toolStripSeparator2.Name = "toolStripSeparator2";
             // 
+            // BtnInsImagem
+            // 
+            resources.ApplyResources(BtnInsImagem, "BtnInsImagem");
+            BtnInsImagem.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            BtnInsImagem.Name = "BtnInsImagem";
+            BtnInsImagem.Click += MnuInserirImagem_Click;
+            // 
+            // btnInsDataHora
+            // 
+            resources.ApplyResources(btnInsDataHora, "btnInsDataHora");
+            btnInsDataHora.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnInsDataHora.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem8, toolStripMenuItem9, toolStripMenuItem10 });
+            btnInsDataHora.Name = "btnInsDataHora";
+            // 
+            // toolStripMenuItem8
+            // 
+            resources.ApplyResources(toolStripMenuItem8, "toolStripMenuItem8");
+            toolStripMenuItem8.Name = "toolStripMenuItem8";
+            toolStripMenuItem8.Click += MnuDataHora_Click;
+            // 
+            // toolStripMenuItem9
+            // 
+            resources.ApplyResources(toolStripMenuItem9, "toolStripMenuItem9");
+            toolStripMenuItem9.Name = "toolStripMenuItem9";
+            toolStripMenuItem9.Click += ApenasADataNoFormatoDDMMAAAAToolStripMenuItem_Click;
+            // 
+            // toolStripMenuItem10
+            // 
+            resources.ApplyResources(toolStripMenuItem10, "toolStripMenuItem10");
+            toolStripMenuItem10.Name = "toolStripMenuItem10";
+            toolStripMenuItem10.Click += ApenasAHoraToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator8
+            // 
+            resources.ApplyResources(toolStripSeparator8, "toolStripSeparator8");
+            toolStripSeparator8.Name = "toolStripSeparator8";
+            // 
+            // btnZoomOut
+            // 
+            resources.ApplyResources(btnZoomOut, "btnZoomOut");
+            btnZoomOut.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnZoomOut.Name = "btnZoomOut";
+            btnZoomOut.Click += DiminuirZoomToolStripMenuItem_Click;
+            // 
+            // BtnZoomIn
+            // 
+            resources.ApplyResources(BtnZoomIn, "BtnZoomIn");
+            BtnZoomIn.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            BtnZoomIn.Name = "BtnZoomIn";
+            BtnZoomIn.Click += MnuAumentarZoom_Click;
+            // 
             // Dicas
             // 
             Dicas.IsBalloon = true;
@@ -498,36 +559,57 @@
             // 
             resources.ApplyResources(statusBar, "statusBar");
             statusBar.ImageScalingSize = new Size(20, 20);
-            statusBar.Items.AddRange(new ToolStripItem[] { stLinha, stColuna, stZoomFactor });
+            statusBar.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel3, stLinha, toolStripStatusLabel2, stColuna, toolStripStatusLabel1, stZoomFactor });
             statusBar.Name = "statusBar";
             Dicas.SetToolTip(statusBar, resources.GetString("statusBar.ToolTip"));
+            // 
+            // toolStripStatusLabel3
+            // 
+            resources.ApplyResources(toolStripStatusLabel3, "toolStripStatusLabel3");
+            toolStripStatusLabel3.Name = "toolStripStatusLabel3";
             // 
             // stLinha
             // 
             resources.ApplyResources(stLinha, "stLinha");
             stLinha.BorderSides = ToolStripStatusLabelBorderSides.Left | ToolStripStatusLabelBorderSides.Top | ToolStripStatusLabelBorderSides.Right | ToolStripStatusLabelBorderSides.Bottom;
+            stLinha.BorderStyle = Border3DStyle.Adjust;
             stLinha.Name = "stLinha";
+            // 
+            // toolStripStatusLabel2
+            // 
+            resources.ApplyResources(toolStripStatusLabel2, "toolStripStatusLabel2");
+            toolStripStatusLabel2.BorderStyle = Border3DStyle.Adjust;
+            toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             // 
             // stColuna
             // 
             resources.ApplyResources(stColuna, "stColuna");
             stColuna.BorderSides = ToolStripStatusLabelBorderSides.Left | ToolStripStatusLabelBorderSides.Top | ToolStripStatusLabelBorderSides.Right | ToolStripStatusLabelBorderSides.Bottom;
+            stColuna.BorderStyle = Border3DStyle.Adjust;
             stColuna.Name = "stColuna";
+            // 
+            // toolStripStatusLabel1
+            // 
+            resources.ApplyResources(toolStripStatusLabel1, "toolStripStatusLabel1");
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Click += toolStripStatusLabel1_Click;
             // 
             // stZoomFactor
             // 
             resources.ApplyResources(stZoomFactor, "stZoomFactor");
             stZoomFactor.BorderSides = ToolStripStatusLabelBorderSides.Left | ToolStripStatusLabelBorderSides.Top | ToolStripStatusLabelBorderSides.Right | ToolStripStatusLabelBorderSides.Bottom;
+            stZoomFactor.BorderStyle = Border3DStyle.Adjust;
             stZoomFactor.Name = "stZoomFactor";
+            stZoomFactor.TextDirection = ToolStripTextDirection.Horizontal;
             // 
-            // toolStrip2
+            // BarraFormatacao
             // 
-            resources.ApplyResources(toolStrip2, "toolStrip2");
-            toolStrip2.AllowDrop = true;
-            toolStrip2.ImageScalingSize = new Size(20, 20);
-            toolStrip2.Items.AddRange(new ToolStripItem[] { cbFont, cbFontSize, toolStripSeparator3, BtnNegrito, BtnItalico, BtnSublinhar, btnCorDaFonte, toolStripSeparator4, BtnEsquerda, BtnCentro, BtnDireita, toolStripSeparator7, InsMarcadores, toolStripSeparator9, toolStripButton1 });
-            toolStrip2.Name = "toolStrip2";
-            Dicas.SetToolTip(toolStrip2, resources.GetString("toolStrip2.ToolTip"));
+            resources.ApplyResources(BarraFormatacao, "BarraFormatacao");
+            BarraFormatacao.AllowItemReorder = true;
+            BarraFormatacao.ImageScalingSize = new Size(20, 20);
+            BarraFormatacao.Items.AddRange(new ToolStripItem[] { cbFont, cbFontSize, toolStripSeparator3, BtnNegrito, BtnItalico, BtnSublinhar, btnCorDaFonte, toolStripSeparator4, BtnEsquerda, BtnCentro, BtnDireita, toolStripSeparator7, InsMarcadores, toolStripSeparator9, btnHighlighter });
+            BarraFormatacao.Name = "BarraFormatacao";
+            Dicas.SetToolTip(BarraFormatacao, resources.GetString("BarraFormatacao.ToolTip"));
             // 
             // cbFont
             // 
@@ -574,6 +656,13 @@
             BtnSublinhar.Name = "BtnSublinhar";
             BtnSublinhar.Click += BtnSublinhar_Click;
             // 
+            // btnCorDaFonte
+            // 
+            resources.ApplyResources(btnCorDaFonte, "btnCorDaFonte");
+            btnCorDaFonte.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnCorDaFonte.Name = "btnCorDaFonte";
+            btnCorDaFonte.Click += btnCorDaFonte_Click;
+            // 
             // toolStripSeparator4
             // 
             resources.ApplyResources(toolStripSeparator4, "toolStripSeparator4");
@@ -612,6 +701,18 @@
             InsMarcadores.Name = "InsMarcadores";
             InsMarcadores.Click += InsMarcadores_Click;
             // 
+            // toolStripSeparator9
+            // 
+            resources.ApplyResources(toolStripSeparator9, "toolStripSeparator9");
+            toolStripSeparator9.Name = "toolStripSeparator9";
+            // 
+            // btnHighlighter
+            // 
+            resources.ApplyResources(btnHighlighter, "btnHighlighter");
+            btnHighlighter.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnHighlighter.Name = "btnHighlighter";
+            btnHighlighter.Click += btnHighlighter_Click;
+            // 
             // timerControles
             // 
             timerControles.Enabled = true;
@@ -628,59 +729,37 @@
             resources.ApplyResources(toolStripMenuItem7, "toolStripMenuItem7");
             toolStripMenuItem7.Name = "toolStripMenuItem7";
             // 
-            // BtnInsImagem
+            // DlgColor
             // 
-            resources.ApplyResources(BtnInsImagem, "BtnInsImagem");
-            BtnInsImagem.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            BtnInsImagem.Name = "BtnInsImagem";
+            DlgColor.AnyColor = true;
+            DlgColor.SolidColorOnly = true;
             // 
-            // btnInsDataHora
+            // toolStripSeparator10
             // 
-            resources.ApplyResources(btnInsDataHora, "btnInsDataHora");
-            btnInsDataHora.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnInsDataHora.Name = "btnInsDataHora";
+            resources.ApplyResources(toolStripSeparator10, "toolStripSeparator10");
+            toolStripSeparator10.Name = "toolStripSeparator10";
             // 
-            // toolStripSeparator8
+            // btnVisualizarImpressao
             // 
-            resources.ApplyResources(toolStripSeparator8, "toolStripSeparator8");
-            toolStripSeparator8.Name = "toolStripSeparator8";
+            resources.ApplyResources(btnVisualizarImpressao, "btnVisualizarImpressao");
+            btnVisualizarImpressao.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnVisualizarImpressao.Name = "btnVisualizarImpressao";
+            btnVisualizarImpressao.Click += MnuVisualizarImpressao_Click;
             // 
-            // btnCorDaFonte
+            // btnConfigPrinter
             // 
-            resources.ApplyResources(btnCorDaFonte, "btnCorDaFonte");
-            btnCorDaFonte.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnCorDaFonte.Name = "btnCorDaFonte";
-            // 
-            // toolStripButton1
-            // 
-            resources.ApplyResources(toolStripButton1, "toolStripButton1");
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Name = "toolStripButton1";
-            // 
-            // toolStripSeparator9
-            // 
-            resources.ApplyResources(toolStripSeparator9, "toolStripSeparator9");
-            toolStripSeparator9.Name = "toolStripSeparator9";
-            // 
-            // btnZoomOut
-            // 
-            resources.ApplyResources(btnZoomOut, "btnZoomOut");
-            btnZoomOut.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnZoomOut.Name = "btnZoomOut";
-            // 
-            // BtnZoomIn
-            // 
-            resources.ApplyResources(BtnZoomIn, "BtnZoomIn");
-            BtnZoomIn.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            BtnZoomIn.Name = "BtnZoomIn";
+            resources.ApplyResources(btnConfigPrinter, "btnConfigPrinter");
+            btnConfigPrinter.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnConfigPrinter.Name = "btnConfigPrinter";
+            btnConfigPrinter.Click += MnuConfigImpressao_Click;
             // 
             // FrmMain
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(toolStrip2);
+            Controls.Add(BarraFormatacao);
             Controls.Add(statusBar);
-            Controls.Add(toolStrip1);
+            Controls.Add(BarraPadrao);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
@@ -688,12 +767,12 @@
             Dicas.SetToolTip(this, resources.GetString("$this.ToolTip"));
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            toolStrip1.ResumeLayout(false);
-            toolStrip1.PerformLayout();
+            BarraPadrao.ResumeLayout(false);
+            BarraPadrao.PerformLayout();
             statusBar.ResumeLayout(false);
             statusBar.PerformLayout();
-            toolStrip2.ResumeLayout(false);
-            toolStrip2.PerformLayout();
+            BarraFormatacao.ResumeLayout(false);
+            BarraFormatacao.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -724,7 +803,7 @@
         private ToolStripTextBox cxPesquisa;
         private ToolStripMenuItem ajudaToolStripMenuItem;
         private ToolStripMenuItem menuSobre;
-        private ToolStrip toolStrip1;
+        private ToolStrip BarraPadrao;
         private ToolStripButton btnNovo;
         private ToolStripButton BtnAbrir;
         private ToolStripButton BtnSalvar;
@@ -767,7 +846,7 @@
         private ToolStripStatusLabel stZoomFactor;
         private ToolStripMenuItem localizarToolStripMenuItem;
         private ToolStripMenuItem substituirToolStripMenuItem;
-        private ToolStrip toolStrip2;
+        private ToolStrip BarraFormatacao;
         private ToolStripComboBox cbFont;
         private ToolStripComboBox cbFontSize;
         private ToolStripSeparator toolStripSeparator3;
@@ -787,6 +866,16 @@
         private ToolStripButton btnZoomOut;
         private ToolStripButton BtnZoomIn;
         private ToolStripSeparator toolStripSeparator9;
-        private ToolStripButton toolStripButton1;
+        private ToolStripButton btnHighlighter;
+        private ColorDialog DlgColor;
+        private ToolStripStatusLabel toolStripStatusLabel1;
+        private ToolStripStatusLabel toolStripStatusLabel3;
+        private ToolStripStatusLabel toolStripStatusLabel2;
+        private ToolStripMenuItem toolStripMenuItem8;
+        private ToolStripMenuItem toolStripMenuItem9;
+        private ToolStripMenuItem toolStripMenuItem10;
+        private ToolStripSeparator toolStripSeparator10;
+        private ToolStripButton btnVisualizarImpressao;
+        private ToolStripButton btnConfigPrinter;
     }
 }

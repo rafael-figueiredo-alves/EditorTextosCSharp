@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using EditorTextos.Serviços;
 
 namespace EditorTextos
 {
@@ -7,10 +8,8 @@ namespace EditorTextos
         public ToolStripComboBox? ComboFont { get; set; }
         public ToolStripComboBox? ComboSize { get; set; }
         private string DocFilename { get; set; } = string.Empty;
-
         private int _checkPrint;
 
-        private StringReader? leitor;
         public FrmDoc(int DocNo = 0)
         {
             InitializeComponent();
@@ -95,29 +94,28 @@ namespace EditorTextos
             DataFormats.Format fm = DataFormats.GetFormat(DataFormats.Rtf);
             return DocContent.CanPaste(fm);
         }
-
         public bool CanIncreaseZoom()
         {
             return DocContent.ZoomFactor >= 1 && DocContent.ZoomFactor < 64;
         }
-
         public bool CanDecreaseZoom()
         {
             return DocContent.ZoomFactor <= 64 && DocContent.ZoomFactor > 1;
         }
-
         public int ZoomFactor()
         {
             return Convert.ToInt32(DocContent.ZoomFactor);
         }
-
+        public Color GetHighlighterColor()
+        {
+            return DocContent.SelectionBackColor;
+        }
         public int GetLinha()
         {
             // Get the line.
             int index = DocContent.SelectionStart;
             return DocContent.GetLineFromCharIndex(index);
         }
-
         public int GetColuna()
         {
             // Get the line.
@@ -128,7 +126,10 @@ namespace EditorTextos
             int firstChar = DocContent.GetFirstCharIndexFromLine(line);
             return index - firstChar;
         }
-
+        public Color GetFontColor()
+        {
+            return DocContent.SelectionColor;
+        }
         public bool usingBullets()
         {
             return DocContent.SelectionBullet;
@@ -406,7 +407,6 @@ namespace EditorTextos
                 System.Diagnostics.Process.Start(e.LinkText);
             }
         }
-
         public void IncreaseZoom()
         {
             if (DocContent.ZoomFactor < 64)
@@ -414,7 +414,6 @@ namespace EditorTextos
                 DocContent.ZoomFactor += 1;
             }
         }
-
         public void DecreaseZoom()
         {
             if (DocContent.ZoomFactor > 1)
@@ -422,7 +421,10 @@ namespace EditorTextos
                 DocContent.ZoomFactor -= 1;
             }
         }
-
+        public void SetFontColor(Color Cor)
+        {
+            DocContent.SelectionColor = Cor;
+        }
         public void ReplaceText(string textFrom, string textTo, bool Tudo = false)
         {
             if (Tudo)
@@ -450,7 +452,10 @@ namespace EditorTextos
                 }
             }
         }
-
+        public void SetHighlighter(Color Cor)
+        {
+            DocContent.SelectionBackColor = Cor;
+        }
         private void printDoc_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             _checkPrint = 0;

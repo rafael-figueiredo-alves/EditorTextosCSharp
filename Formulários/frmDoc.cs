@@ -23,6 +23,7 @@ namespace EditorTextos
             DocContent.ShowSelectionMargin = Config.Settings().settings().UseMargins;
             DocContent.Font = new Font(Config.Settings().settings().DefaultFont, Config.Settings().settings().DefaultFontSize);
             DocContent.SelectionFont = new Font(Config.Settings().settings().DefaultFont, Config.Settings().settings().DefaultFontSize);
+            DocContent.ZoomFactor = Config.Settings().settings().Zoom;
 
             //printDoc.BeginPrint += prin
         }
@@ -341,6 +342,10 @@ namespace EditorTextos
         public void InsertTime()
         {
             DocContent.SelectedText += DateTime.Now.ToString("hh:mm:ss");
+        }
+        public void InsertLongDate()
+        {
+            DocContent.SelectedText += DateTime.Now.ToLongDateString();
         }
         public void FormatFont()
         {

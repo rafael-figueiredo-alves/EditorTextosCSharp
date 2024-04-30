@@ -63,5 +63,6 @@ namespace EditorTextos.Serviços
         public string DefaultFont { get; set; } = "Arial";
         public int DefaultFontSize { get; set; } = 12;
         public bool UseMargins { get; set; } = true;
+        public int Zoom { get; set; } = 1;
     }
 }

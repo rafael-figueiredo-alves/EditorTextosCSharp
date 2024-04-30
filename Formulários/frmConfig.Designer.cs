@@ -35,6 +35,9 @@
             label1 = new Label();
             label2 = new Label();
             btnSalvar = new Button();
+            label3 = new Label();
+            ZoomEdit = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)ZoomEdit).BeginInit();
             SuspendLayout();
             // 
             // chDetectURLS
@@ -95,7 +98,7 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(459, 175);
+            btnSalvar.Location = new Point(459, 226);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(94, 29);
             btnSalvar.TabIndex = 6;
@@ -103,11 +106,33 @@
             btnSalvar.UseVisualStyleBackColor = true;
             btnSalvar.Click += btnSalvar_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(12, 230);
+            label3.Name = "label3";
+            label3.Size = new Size(186, 20);
+            label3.TabIndex = 7;
+            label3.Text = "Tamanho de Zoom padrão";
+            label3.Click += label3_Click;
+            // 
+            // ZoomEdit
+            // 
+            ZoomEdit.Location = new Point(202, 226);
+            ZoomEdit.Maximum = new decimal(new int[] { 64, 0, 0, 0 });
+            ZoomEdit.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            ZoomEdit.Name = "ZoomEdit";
+            ZoomEdit.Size = new Size(150, 27);
+            ZoomEdit.TabIndex = 8;
+            ZoomEdit.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
             // frmConfig
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(570, 215);
+            ClientSize = new Size(570, 267);
+            Controls.Add(ZoomEdit);
+            Controls.Add(label3);
             Controls.Add(btnSalvar);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -121,6 +146,7 @@
             Name = "frmConfig";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Configurações";
+            ((System.ComponentModel.ISupportInitialize)ZoomEdit).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -134,5 +160,7 @@
         private Label label1;
         private Label label2;
         private Button btnSalvar;
+        private Label label3;
+        private NumericUpDown ZoomEdit;
     }
 }

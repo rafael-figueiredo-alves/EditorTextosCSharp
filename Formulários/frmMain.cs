@@ -427,5 +427,10 @@ namespace EditorTextos
                 DocWindow()!.SetHighlighter(DlgColor.Color);
             }
         }
+
+        private void diaDaSemanaEDataPorExtensoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DocWindow()!.InsertLongDate();
+        }
     }
 }

@@ -52,7 +52,7 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTitulo.Font = new Font("Arial", 24F, FontStyle.Bold);
             lblTitulo.Location = new Point(118, 12);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(435, 46);
@@ -66,12 +66,12 @@
             lblVersion.Name = "lblVersion";
             lblVersion.Size = new Size(75, 20);
             lblVersion.TabIndex = 2;
-            lblVersion.Text = "versão 1.4";
+            lblVersion.Text = "versão 1.5";
             // 
             // lblCopyright
             // 
             lblCopyright.AutoSize = true;
-            lblCopyright.Font = new Font("Arial", 9.75F, FontStyle.Italic, GraphicsUnit.Point);
+            lblCopyright.Font = new Font("Arial", 9.75F, FontStyle.Italic);
             lblCopyright.Location = new Point(123, 72);
             lblCopyright.Name = "lblCopyright";
             lblCopyright.Size = new Size(380, 20);

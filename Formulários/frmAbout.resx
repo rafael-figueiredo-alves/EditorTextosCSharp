@@ -121,7 +121,7 @@
   <data name="imageLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAACApJREFUeF7tnWlsVFUUx5tIOmhIRIwJfNIYxRgkkUT2TUHodCjQdmbAFmTrwlKm
+        DgAACw4BQL7hQQAACApJREFUeF7tnWlsVFUUx5tIOmhIRIwJfNIYxRgkkUT2TUHodCjQdmbAFmTrwlKm
         tGWxM20tZQk7KAXaAt0oO11gSpDaAlMWQyLyhRhDFBGX8EESESOKSI7vXN4b3505JTDbmzvcf/IL9PDm
         3fM//3lb0ylxUlJSUlJSUlJSUlJST4tSc4tftzuKCmy5rm02h/NwVKD0gj3Z8wtfU9uMfU3NKexry3W6
         FfMQzVgdrmP4plHbjk3ZHYVma67zd2oAgZK+pBSWb6tRqIb0xR+T2wSKNdd1O3WRK0FtP7ZkdXw0QDky
@@ -159,7 +159,12 @@
 </value>
   </data>
   <data name="TxtHistorico.Text" xml:space="preserve">
-    <value>Versão 1.4
+    <value>Versão 1.5
+=&gt; Atualizado projeto para versão 8 do Dotnet.
+=&gt; Adicionada opção às configurações para setar o Zoom.
+=&gt; Adicionada novo formato de data a ser inserido no documento.
+
+Versão 1.4
 =&gt; Implementada funcionalidade de Substituir Texto.
 =&gt; Reformulada interface (novos ícones e aumentado tamanho dos botões).
 =&gt; Barras de Ferramentas separadas (Padrão e Formatação).

@@ -80,6 +80,9 @@
             btnNovo = new ToolStripButton();
             BtnAbrir = new ToolStripButton();
             BtnSalvar = new ToolStripButton();
+            toolStripSeparator10 = new ToolStripSeparator();
+            btnConfigPrinter = new ToolStripButton();
+            btnVisualizarImpressao = new ToolStripButton();
             BtnImprimir = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             BtnDesfazer = new ToolStripButton();
@@ -124,9 +127,8 @@
             MnuVertical = new ToolStripMenuItem();
             toolStripMenuItem7 = new ToolStripSeparator();
             DlgColor = new ColorDialog();
-            toolStripSeparator10 = new ToolStripSeparator();
-            btnVisualizarImpressao = new ToolStripButton();
-            btnConfigPrinter = new ToolStripButton();
+            diaDaSemanaEDataPorExtensoToolStripMenuItem = new ToolStripMenuItem();
+            diaDaSemanaEDataPorExtensoToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             BarraPadrao.SuspendLayout();
             statusBar.SuspendLayout();
@@ -280,7 +282,7 @@
             // MnuDataHora
             // 
             resources.ApplyResources(MnuDataHora, "MnuDataHora");
-            MnuDataHora.DropDownItems.AddRange(new ToolStripItem[] { dataEHoraCompletaToolStripMenuItem, apenasADataNoFormatoDDMMAAAAToolStripMenuItem, apenasAHoraToolStripMenuItem });
+            MnuDataHora.DropDownItems.AddRange(new ToolStripItem[] { dataEHoraCompletaToolStripMenuItem, apenasADataNoFormatoDDMMAAAAToolStripMenuItem, apenasAHoraToolStripMenuItem, diaDaSemanaEDataPorExtensoToolStripMenuItem1 });
             MnuDataHora.Name = "MnuDataHora";
             // 
             // dataEHoraCompletaToolStripMenuItem
@@ -446,6 +448,25 @@
             BtnSalvar.Name = "BtnSalvar";
             BtnSalvar.Click += BtnSalvar_Click;
             // 
+            // toolStripSeparator10
+            // 
+            resources.ApplyResources(toolStripSeparator10, "toolStripSeparator10");
+            toolStripSeparator10.Name = "toolStripSeparator10";
+            // 
+            // btnConfigPrinter
+            // 
+            resources.ApplyResources(btnConfigPrinter, "btnConfigPrinter");
+            btnConfigPrinter.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnConfigPrinter.Name = "btnConfigPrinter";
+            btnConfigPrinter.Click += MnuConfigImpressao_Click;
+            // 
+            // btnVisualizarImpressao
+            // 
+            resources.ApplyResources(btnVisualizarImpressao, "btnVisualizarImpressao");
+            btnVisualizarImpressao.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnVisualizarImpressao.Name = "btnVisualizarImpressao";
+            btnVisualizarImpressao.Click += MnuVisualizarImpressao_Click;
+            // 
             // BtnImprimir
             // 
             resources.ApplyResources(BtnImprimir, "BtnImprimir");
@@ -509,7 +530,7 @@
             // 
             resources.ApplyResources(btnInsDataHora, "btnInsDataHora");
             btnInsDataHora.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnInsDataHora.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem8, toolStripMenuItem9, toolStripMenuItem10 });
+            btnInsDataHora.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem8, toolStripMenuItem9, toolStripMenuItem10, diaDaSemanaEDataPorExtensoToolStripMenuItem });
             btnInsDataHora.Name = "btnInsDataHora";
             // 
             // toolStripMenuItem8
@@ -734,24 +755,17 @@
             DlgColor.AnyColor = true;
             DlgColor.SolidColorOnly = true;
             // 
-            // toolStripSeparator10
+            // diaDaSemanaEDataPorExtensoToolStripMenuItem
             // 
-            resources.ApplyResources(toolStripSeparator10, "toolStripSeparator10");
-            toolStripSeparator10.Name = "toolStripSeparator10";
+            resources.ApplyResources(diaDaSemanaEDataPorExtensoToolStripMenuItem, "diaDaSemanaEDataPorExtensoToolStripMenuItem");
+            diaDaSemanaEDataPorExtensoToolStripMenuItem.Name = "diaDaSemanaEDataPorExtensoToolStripMenuItem";
+            diaDaSemanaEDataPorExtensoToolStripMenuItem.Click += diaDaSemanaEDataPorExtensoToolStripMenuItem_Click;
             // 
-            // btnVisualizarImpressao
+            // diaDaSemanaEDataPorExtensoToolStripMenuItem1
             // 
-            resources.ApplyResources(btnVisualizarImpressao, "btnVisualizarImpressao");
-            btnVisualizarImpressao.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnVisualizarImpressao.Name = "btnVisualizarImpressao";
-            btnVisualizarImpressao.Click += MnuVisualizarImpressao_Click;
-            // 
-            // btnConfigPrinter
-            // 
-            resources.ApplyResources(btnConfigPrinter, "btnConfigPrinter");
-            btnConfigPrinter.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnConfigPrinter.Name = "btnConfigPrinter";
-            btnConfigPrinter.Click += MnuConfigImpressao_Click;
+            resources.ApplyResources(diaDaSemanaEDataPorExtensoToolStripMenuItem1, "diaDaSemanaEDataPorExtensoToolStripMenuItem1");
+            diaDaSemanaEDataPorExtensoToolStripMenuItem1.Name = "diaDaSemanaEDataPorExtensoToolStripMenuItem1";
+            diaDaSemanaEDataPorExtensoToolStripMenuItem1.Click += diaDaSemanaEDataPorExtensoToolStripMenuItem_Click;
             // 
             // FrmMain
             // 
@@ -877,5 +891,7 @@
         private ToolStripSeparator toolStripSeparator10;
         private ToolStripButton btnVisualizarImpressao;
         private ToolStripButton btnConfigPrinter;
+        private ToolStripMenuItem diaDaSemanaEDataPorExtensoToolStripMenuItem;
+        private ToolStripMenuItem diaDaSemanaEDataPorExtensoToolStripMenuItem1;
     }
 }
